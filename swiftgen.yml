@@ -1,0 +1,4 @@
+strings:
+  paths: Scripty/Resources/Strings/Localizable.strings
+  templateName: structured-swift3
+  output: Scripty/Resources/Constants/Localizable.swift
