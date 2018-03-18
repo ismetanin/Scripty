@@ -33,9 +33,12 @@ final class MainMenuDataDisplayManager {
         self.commands = commands
 
         // add command item
-        let addItem = NSMenuItem(title: L10n.Mainmenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: "")
+        let addItem = NSMenuItem(title: L10n.Mainmenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: L10n.Mainmenu.addItemTitle)
         addItem.target = self
         menu.addItem(addItem)
+
+        // separator
+        menu.addItem(NSMenuItem.separator())
 
         // commands
         for (index, command) in commands.enumerated() {
@@ -44,6 +47,9 @@ final class MainMenuDataDisplayManager {
             item.tag = index
             menu.addItem(item)
         }
+
+        // separator
+        menu.addItem(NSMenuItem.separator())
 
         // quit item
         let quitItem = NSMenuItem(title: L10n.Mainmenu.quitItemTitle, action: #selector(quitAction(_:)), keyEquivalent: "")
@@ -56,6 +62,7 @@ final class MainMenuDataDisplayManager {
 // MARK: - Private methods
 
 private extension MainMenuDataDisplayManager {
+
 
     @objc
     private func add(_ sender: NSMenuItem) {

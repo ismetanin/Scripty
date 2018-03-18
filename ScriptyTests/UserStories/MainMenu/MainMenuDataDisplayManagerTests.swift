@@ -49,7 +49,7 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         // when
         ddm?.configure(with: commands)
         // then
-        XCTAssert(menu?.items.count == 4)
+        XCTAssert(menu?.items.count == 6)
     }
 
     func testThatDataDisplayManagerFillsMenuInRightOrder() {
@@ -59,9 +59,11 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         ddm?.configure(with: commands)
         // then
         XCTAssert(menu?.items[0].title == L10n.Mainmenu.addItemTitle)
-        XCTAssert(menu?.items[1].title == commands.first?.name)
-        XCTAssert(menu?.items[2].title == commands.last?.name)
-        XCTAssert(menu?.items[3].title == L10n.Mainmenu.quitItemTitle)
+        XCTAssert(menu?.items[1].isSeparatorItem == true)
+        XCTAssert(menu?.items[2].title == commands.first?.name)
+        XCTAssert(menu?.items[3].title == commands.last?.name)
+        XCTAssert(menu?.items[4].isSeparatorItem == true)
+        XCTAssert(menu?.items[5].title == L10n.Mainmenu.quitItemTitle)
     }
 
     func testThatDataDisplayManagerInvokesCommandSelectionEvent() {
@@ -74,7 +76,7 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         }
         // when
         ddm?.configure(with: commands)
-        menu?.performActionForItem(at: 1)
+        menu?.performActionForItem(at: 2)
         // then
         XCTAssert(commandSelectionEventInvoked == true)
     }
@@ -102,7 +104,7 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         }
         // when
         ddm?.configure(with: commands)
-        menu?.performActionForItem(at: 3)
+        menu?.performActionForItem(at: (menu?.items.count ?? 0) - 1 )
         // then
         XCTAssert(quitEventInvoked == true)
     }
