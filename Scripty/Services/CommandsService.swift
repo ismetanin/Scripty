@@ -10,13 +10,18 @@ import Foundation
 
 final class CommandsService {
 
-    func add(command: Command) {
+    // MARK: - Properties
 
+    private var commands: [Command] = [Command(name: "Open Safari", args: ["open", "-a", "safari"]),
+                                       Command(name: "Open Telegram", args: ["open", "-a", "telegram"])]
+
+    // MARK: - Internal methods
+
+    func add(command: Command) {
+        commands.append(command)
     }
 
     func getAll() -> [Command] {
-        let commands = [Command(name: "Open Safari", args: ["open", "-a", "safari"]),
-                        Command(name: "Open Telegram", args: ["open", "-a", "telegram"])]
         return commands
     }
 

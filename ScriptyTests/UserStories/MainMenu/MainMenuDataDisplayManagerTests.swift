@@ -24,9 +24,6 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         let ddm = MainMenuDataDisplayManager(menu: menu)
         self.menu = menu
         self.ddm = ddm
-        ddm.quitEvent += {
-            debugPrint("lol")
-        }
     }
     
     override func tearDown() {
@@ -55,6 +52,47 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         XCTAssert(menu?.items.count == 4)
     }
 
+    func testThatDataDisplayManagerFillsMenuInRightOrder() {
+        // given
+        let commands: [Command] = [Command(name: "1", args: []), Command(name: "2", args: [])]
+        // when
+        ddm?.configure(with: commands)
+        // then
+        XCTAssert(menu?.items[0].title == L10n.Mainmenu.addItemTitle)
+        XCTAssert(menu?.items[1].title == commands.first?.name)
+        XCTAssert(menu?.items[2].title == commands.last?.name)
+        XCTAssert(menu?.items[3].title == L10n.Mainmenu.quitItemTitle)
+    }
+
+    func testThatDataDisplayManagerInvokesCommandSelectionEvent() {
+        // given
+        let commands: [Command] = [Command(name: "1", args: []), Command(name: "2", args: [])]
+        var commandSelectionEventInvoked: Bool = false
+        ddm?.commandSelectionEvent += { command in
+            commandSelectionEventInvoked = true
+            XCTAssert(command.name == commands.first?.name)
+        }
+        // when
+        ddm?.configure(with: commands)
+        menu?.performActionForItem(at: 1)
+        // then
+        XCTAssert(commandSelectionEventInvoked == true)
+    }
+
+    func testThatDataDisplayManagerInvokesAddScriptEvent() {
+        // given
+        let commands: [Command] = [Command(name: "", args: []), Command(name: "", args: [])]
+        var addEventInvoked: Bool = false
+        ddm?.addEvent += {
+            addEventInvoked = true
+        }
+        // when
+        ddm?.configure(with: commands)
+        menu?.performActionForItem(at: 0)
+        // then
+        XCTAssert(addEventInvoked == true)
+    }
+
     func testThatDataDisplayManagerInvokesQuitEvent() {
         // given
         let commands: [Command] = [Command(name: "", args: []), Command(name: "", args: [])]
@@ -64,7 +102,7 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         }
         // when
         ddm?.configure(with: commands)
-        menu?.performActionForItem(at: 2)
+        menu?.performActionForItem(at: 3)
         // then
         XCTAssert(quitEventInvoked == true)
     }
