@@ -33,7 +33,7 @@ final class MainMenuDataDisplayManager {
         self.commands = commands
 
         // add command item
-        let addItem = NSMenuItem(title: L10n.Mainmenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: L10n.Mainmenu.addItemTitle)
+        let addItem = NSMenuItem(title: L10n.Mainmenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: "")
         addItem.target = self
         menu.addItem(addItem)
 

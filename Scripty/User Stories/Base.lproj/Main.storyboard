@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="VrT-6k-uUw">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Kge-cH-XIs">
+            <objects>
+                <windowController id="VrT-6k-uUw" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uda-Bg-SrQ">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="VrT-6k-uUw" id="Itn-pz-zf9"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="PMR-UX-oWJ" kind="relationship" relationship="window.shadowedContentViewController" id="Efe-R7-D5V"/>
+                    </connections>
+                </windowController>
+                <customObject id="vkU-WJ-uqe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="233"/>
+        </scene>
+        <!--Add Script View Controller-->
+        <scene sceneID="TSc-kU-7TP">
+            <objects>
+                <viewController id="PMR-UX-oWJ" customClass="AddScriptViewController" customModule="Scripty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Hzd-78-7cl">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="280"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9D3-cJ-AZE">
+                                <rect key="frame" x="20" y="213" width="440" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="9uK-p1-3Xa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R5W-bM-mUv">
+                                <rect key="frame" x="18" y="243" width="444" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script name" id="Bc2-cb-ab0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PGL-V3-67q">
+                                <rect key="frame" x="18" y="176" width="444" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script" id="fS4-Ey-Caw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBA-XH-wfe">
+                                <rect key="frame" x="20" y="20" width="440" height="148"/>
+                                <clipView key="contentView" id="MWV-e5-qnY">
+                                    <rect key="frame" x="1" y="1" width="438" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" smartInsertDelete="YES" id="T4M-yV-MR3">
+                                            <rect key="frame" x="0.0" y="0.0" width="438" height="146"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="438" height="146"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="qod-R6-fZE">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="VGl-Ah-qlZ">
+                                    <rect key="frame" x="423" y="1" width="16" height="146"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wBA-XH-wfe" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="0ko-3R-0QC"/>
+                            <constraint firstItem="9D3-cJ-AZE" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="Ejh-PU-0cE"/>
+                            <constraint firstItem="wBA-XH-wfe" firstAttribute="top" secondItem="PGL-V3-67q" secondAttribute="bottom" constant="8" id="OQf-1B-sWx"/>
+                            <constraint firstItem="R5W-bM-mUv" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="XZ7-PH-lFX"/>
+                            <constraint firstAttribute="bottom" secondItem="wBA-XH-wfe" secondAttribute="bottom" constant="20" id="afL-4F-lHp"/>
+                            <constraint firstItem="9D3-cJ-AZE" firstAttribute="top" secondItem="R5W-bM-mUv" secondAttribute="bottom" constant="8" id="coJ-Ps-N8Z"/>
+                            <constraint firstItem="PGL-V3-67q" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="fPg-km-3pU"/>
+                            <constraint firstAttribute="trailing" secondItem="R5W-bM-mUv" secondAttribute="trailing" constant="20" id="gQX-VK-1l3"/>
+                            <constraint firstItem="R5W-bM-mUv" firstAttribute="top" secondItem="Hzd-78-7cl" secondAttribute="top" constant="20" id="hYP-rY-Gk2"/>
+                            <constraint firstItem="PGL-V3-67q" firstAttribute="top" secondItem="9D3-cJ-AZE" secondAttribute="bottom" constant="20" id="sUh-75-YUw"/>
+                            <constraint firstAttribute="trailing" secondItem="PGL-V3-67q" secondAttribute="trailing" constant="20" id="tLB-gp-W9F"/>
+                            <constraint firstAttribute="trailing" secondItem="wBA-XH-wfe" secondAttribute="trailing" constant="20" id="uBC-ws-fNZ"/>
+                            <constraint firstAttribute="trailing" secondItem="9D3-cJ-AZE" secondAttribute="trailing" constant="20" id="xLN-dl-8dz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scriptTextView" destination="T4M-yV-MR3" id="484-Rk-edz"/>
+                    </connections>
+                </viewController>
+                <customObject id="rt7-ZS-dzn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882" y="289"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
