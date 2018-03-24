@@ -8,6 +8,15 @@ import Foundation
 // swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 enum L10n {
 
+  enum Addscript {
+    /// Done
+    static let doneButtonTitle = L10n.tr("Localizable", "AddScript.DoneButtonTitle")
+    /// Script
+    static let scriptContentTitle = L10n.tr("Localizable", "AddScript.ScriptContentTitle")
+    /// Script name
+    static let scriptNameTitle = L10n.tr("Localizable", "AddScript.ScriptNameTitle")
+  }
+
   enum Mainmenu {
     /// Add script...
     static let addItemTitle = L10n.tr("Localizable", "MainMenu.AddItemTitle")
