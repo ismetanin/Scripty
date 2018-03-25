@@ -13,7 +13,9 @@ final class CommandsService {
     // MARK: - Properties
 
     private var commands: [Command] = [Command(name: "Open Safari", args: ["open", "-a", "safari"]),
-                                       Command(name: "Open Telegram", args: ["open", "-a", "telegram"])]
+                                       Command(name: "Open Telegram", args: ["open", "-a", "telegram"]),
+                                       Command(name: "Delete derrived data", args: ["rm -rf"])
+                                       ]
 
     // MARK: - Internal methods
 
