@@ -11,24 +11,14 @@ import Foundation
 final class Shell {
 
     @discardableResult
-    static func run(_ arguments: [String]) -> String {
+    static func run(_ arguments: [String]) -> Int32 {
         let task = Process()
-        task.launchPath = "/Users/ivansmetanin/Library/Developer/Xcode/DerivedData"
+        task.launchPath = "/usr/bin/env"
         task.arguments = arguments
-
-        let pipe = Pipe()
         task.standardOutput = pipe
         task.launch()
-
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: String.Encoding.utf8)!
-        if output.count > 0 {
-            //remove newline character.
-            let lastIndex = output.index(before: output.endIndex)
-            debugPrint(String(output[output.startIndex ..< lastIndex]))
-            return String(output[output.startIndex ..< lastIndex])
-        }
-        return output
+        task.waitUntilExit()
+        return task.terminationStatus
     }
 
 }
