@@ -21,6 +21,7 @@
 		8B0DF053205EE15E00C7F823 /* MainMenuDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF052205EE15E00C7F823 /* MainMenuDataDisplayManager.swift */; };
 		8B0DF057205EE55500C7F823 /* MainMenuDataDisplayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF056205EE55500C7F823 /* MainMenuDataDisplayManagerTests.swift */; };
 		8B0DF05E205EF06800C7F823 /* CommandsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF05D205EF06800C7F823 /* CommandsServiceTests.swift */; };
+		8B2FBBA220642C6D00B9C941 /* AddScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */; };
 		F1F1247AFFBE4B42B305F002 /* Pods_Scripty_ScriptyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BBB377E760FEABC18F3C13 /* Pods_Scripty_ScriptyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		8B0DF052205EE15E00C7F823 /* MainMenuDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuDataDisplayManager.swift; sourceTree = "<group>"; };
 		8B0DF056205EE55500C7F823 /* MainMenuDataDisplayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuDataDisplayManagerTests.swift; sourceTree = "<group>"; };
 		8B0DF05D205EF06800C7F823 /* CommandsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsServiceTests.swift; sourceTree = "<group>"; };
+		8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScriptViewController.swift; sourceTree = "<group>"; };
 		A68971C062A14CBD3BA5F595 /* Pods-Scripty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scripty/Pods-Scripty.release.xcconfig"; sourceTree = "<group>"; };
 		C2982CEAD9182B27C4C45517 /* Pods-Scripty-ScriptyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripty-ScriptyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scripty-ScriptyTests/Pods-Scripty-ScriptyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 			children = (
 				8B0DF03E205ED87700C7F823 /* MainMenu */,
 				8B0DF01A205EC71B00C7F823 /* Main.storyboard */,
+				8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */,
 			);
 			path = "User Stories";
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			files = (
 				8B0DF053205EE15E00C7F823 /* MainMenuDataDisplayManager.swift in Sources */,
 				8B0DF050205EDF5600C7F823 /* CommandsService.swift in Sources */,
+				8B2FBBA220642C6D00B9C941 /* AddScriptViewController.swift in Sources */,
 				8B0DF037205ECC4000C7F823 /* Shell.swift in Sources */,
 				8B0DF035205ECA7600C7F823 /* MainMenu.swift in Sources */,
 				8B0DF047205EDB6F00C7F823 /* Localizable.swift in Sources */,

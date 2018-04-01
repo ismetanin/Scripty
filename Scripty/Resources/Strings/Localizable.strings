@@ -9,4 +9,7 @@
 "StatusItem.Title" = "Scripty";
 "MainMenu.AddItemTitle" = "Add script...";
 "MainMenu.QuitItemTitle" = "Quit";
+"AddScript.ScriptNameTitle" = "Script name";
+"AddScript.ScriptContentTitle" = "Script";
+"AddScript.DoneButtonTitle" = "Done";
 

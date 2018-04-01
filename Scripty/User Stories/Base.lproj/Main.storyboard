@@ -1,28 +1,1941 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="VrT-6k-uUw">
     <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="13752"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" message="Use a version of macOS with Touch Bar support." minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Kge-cH-XIs">
+            <objects>
+                <windowController storyboardIdentifier="AddScriptViewController" id="VrT-6k-uUw" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uda-Bg-SrQ">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="VrT-6k-uUw" id="Itn-pz-zf9"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="PMR-UX-oWJ" kind="relationship" relationship="window.shadowedContentViewController" id="Efe-R7-D5V"/>
+                    </connections>
+                </windowController>
+                <customObject id="vkU-WJ-uqe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="233"/>
+        </scene>
+        <!--Add Script View Controller-->
+        <scene sceneID="TSc-kU-7TP">
+            <objects>
+                <viewController id="PMR-UX-oWJ" customClass="AddScriptViewController" customModule="Scripty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Hzd-78-7cl">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9D3-cJ-AZE">
+                                <rect key="frame" x="20" y="253" width="440" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="9uK-p1-3Xa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R5W-bM-mUv">
+                                <rect key="frame" x="18" y="283" width="444" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script name" id="Bc2-cb-ab0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PGL-V3-67q">
+                                <rect key="frame" x="18" y="216" width="444" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script" id="fS4-Ey-Caw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBA-XH-wfe">
+                                <rect key="frame" x="20" y="60" width="440" height="148"/>
+                                <clipView key="contentView" id="MWV-e5-qnY">
+                                    <rect key="frame" x="1" y="1" width="438" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" fieldEditor="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" textCompletion="NO" smartInsertDelete="YES" id="T4M-yV-MR3">
+                                            <rect key="frame" x="0.0" y="0.0" width="438" height="146"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="438" height="146"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <allowedInputSourceLocales>
+                                                <string>eu</string>
+                                                <string>hr_BA</string>
+                                                <string>en_CM</string>
+                                                <string>en_BI</string>
+                                                <string>rw_RW</string>
+                                                <string>ast</string>
+                                                <string>en_SZ</string>
+                                                <string>he_IL</string>
+                                                <string>ar</string>
+                                                <string>uz_Arab</string>
+                                                <string>en_PN</string>
+                                                <string>as</string>
+                                                <string>en_NF</string>
+                                                <string>ks_IN</string>
+                                                <string>es_KY</string>
+                                                <string>rwk_TZ</string>
+                                                <string>zh_Hant_TW</string>
+                                                <string>en_CN</string>
+                                                <string>gsw_LI</string>
+                                                <string>ta_IN</string>
+                                                <string>th_TH</string>
+                                                <string>es_EA</string>
+                                                <string>fr_GF</string>
+                                                <string>ar_001</string>
+                                                <string>en_RW</string>
+                                                <string>tr_TR</string>
+                                                <string>de_CH</string>
+                                                <string>ee_TG</string>
+                                                <string>en_NG</string>
+                                                <string>fr_TG</string>
+                                                <string>az</string>
+                                                <string>fr_SC</string>
+                                                <string>es_HN</string>
+                                                <string>en_AG</string>
+                                                <string>ru_KZ</string>
+                                                <string>gsw</string>
+                                                <string>dyo</string>
+                                                <string>so_ET</string>
+                                                <string>zh_Hant_MO</string>
+                                                <string>de_BE</string>
+                                                <string>nus_SS</string>
+                                                <string>km_KH</string>
+                                                <string>my_MM</string>
+                                                <string>mgh_MZ</string>
+                                                <string>ee_GH</string>
+                                                <string>es_EC</string>
+                                                <string>kw_GB</string>
+                                                <string>rm_CH</string>
+                                                <string>en_ME</string>
+                                                <string>nyn</string>
+                                                <string>mk_MK</string>
+                                                <string>bs_Cyrl_BA</string>
+                                                <string>ar_MR</string>
+                                                <string>es_GL</string>
+                                                <string>en_BM</string>
+                                                <string>ms_Arab</string>
+                                                <string>en_AI</string>
+                                                <string>gl_ES</string>
+                                                <string>en_PR</string>
+                                                <string>ff_CM</string>
+                                                <string>ne_IN</string>
+                                                <string>or_IN</string>
+                                                <string>khq_ML</string>
+                                                <string>en_MG</string>
+                                                <string>pt_TL</string>
+                                                <string>en_LC</string>
+                                                <string>iu_CA</string>
+                                                <string>ta_SG</string>
+                                                <string>jmc_TZ</string>
+                                                <string>om_ET</string>
+                                                <string>lv_LV</string>
+                                                <string>es_US</string>
+                                                <string>en_PT</string>
+                                                <string>vai_Latn_LR</string>
+                                                <string>en_NL</string>
+                                                <string>to_TO</string>
+                                                <string>cgg_UG</string>
+                                                <string>en_MH</string>
+                                                <string>ta</string>
+                                                <string>zu_ZA</string>
+                                                <string>shi_Latn_MA</string>
+                                                <string>es_FK</string>
+                                                <string>ar_KM</string>
+                                                <string>en_AL</string>
+                                                <string>brx_IN</string>
+                                                <string>te</string>
+                                                <string>chr_US</string>
+                                                <string>yo_BJ</string>
+                                                <string>fr_VU</string>
+                                                <string>pa</string>
+                                                <string>tg</string>
+                                                <string>kea</string>
+                                                <string>ksh_DE</string>
+                                                <string>sw_CD</string>
+                                                <string>te_IN</string>
+                                                <string>fr_RE</string>
+                                                <string>th</string>
+                                                <string>ur_IN</string>
+                                                <string>yo_NG</string>
+                                                <string>ti</string>
+                                                <string>es_HT</string>
+                                                <string>es_GP</string>
+                                                <string>guz_KE</string>
+                                                <string>tk</string>
+                                                <string>kl_GL</string>
+                                                <string>ksf_CM</string>
+                                                <string>mua_CM</string>
+                                                <string>lag_TZ</string>
+                                                <string>lb</string>
+                                                <string>fr_TN</string>
+                                                <string>es_PA</string>
+                                                <string>pl_PL</string>
+                                                <string>to</string>
+                                                <string>hi_IN</string>
+                                                <string>dje_NE</string>
+                                                <string>es_GQ</string>
+                                                <string>en_BR</string>
+                                                <string>kok_IN</string>
+                                                <string>pl</string>
+                                                <string>fr_GN</string>
+                                                <string>bem</string>
+                                                <string>ha</string>
+                                                <string>ckb</string>
+                                                <string>lg</string>
+                                                <string>tr</string>
+                                                <string>en_PW</string>
+                                                <string>en_NO</string>
+                                                <string>nyn_UG</string>
+                                                <string>sr_Latn_RS</string>
+                                                <string>gsw_FR</string>
+                                                <string>pa_Guru</string>
+                                                <string>he</string>
+                                                <string>qu_BO</string>
+                                                <string>ps_AF</string>
+                                                <string>lu_CD</string>
+                                                <string>mgo_CM</string>
+                                                <string>sn_ZW</string>
+                                                <string>en_BS</string>
+                                                <string>da</string>
+                                                <string>ps</string>
+                                                <string>ln</string>
+                                                <string>pt</string>
+                                                <string>hi</string>
+                                                <string>lo</string>
+                                                <string>ebu</string>
+                                                <string>de</string>
+                                                <string>gu_IN</string>
+                                                <string>seh</string>
+                                                <string>en_CX</string>
+                                                <string>en_ZM</string>
+                                                <string>fr_HT</string>
+                                                <string>fr_GP</string>
+                                                <string>pt_GQ</string>
+                                                <string>lt</string>
+                                                <string>lu</string>
+                                                <string>es_TT</string>
+                                                <string>ln_CD</string>
+                                                <string>vai_Latn</string>
+                                                <string>el_GR</string>
+                                                <string>lv</string>
+                                                <string>en_KE</string>
+                                                <string>sbp</string>
+                                                <string>hr</string>
+                                                <string>en_CY</string>
+                                                <string>es_GT</string>
+                                                <string>twq_NE</string>
+                                                <string>zh_Hant_HK</string>
+                                                <string>kln_KE</string>
+                                                <string>fr_GQ</string>
+                                                <string>chr</string>
+                                                <string>hu</string>
+                                                <string>es_UY</string>
+                                                <string>fr_CA</string>
+                                                <string>ms_BN</string>
+                                                <string>en_NR</string>
+                                                <string>mer</string>
+                                                <string>shi</string>
+                                                <string>es_PE</string>
+                                                <string>fr_SN</string>
+                                                <string>bez</string>
+                                                <string>sw_TZ</string>
+                                                <string>wae_CH</string>
+                                                <string>kkj</string>
+                                                <string>hy</string>
+                                                <string>dz_BT</string>
+                                                <string>en_CZ</string>
+                                                <string>teo_KE</string>
+                                                <string>teo</string>
+                                                <string>en_AR</string>
+                                                <string>ar_JO</string>
+                                                <string>yue_Hans_CN</string>
+                                                <string>mer_KE</string>
+                                                <string>khq</string>
+                                                <string>ln_CF</string>
+                                                <string>nn_NO</string>
+                                                <string>es_SR</string>
+                                                <string>en_MO</string>
+                                                <string>ar_TD</string>
+                                                <string>dz</string>
+                                                <string>ses</string>
+                                                <string>en_BW</string>
+                                                <string>en_AS</string>
+                                                <string>ar_IL</string>
+                                                <string>es_BB</string>
+                                                <string>bo_CN</string>
+                                                <string>nnh</string>
+                                                <string>teo_UG</string>
+                                                <string>hy_AM</string>
+                                                <string>ln_CG</string>
+                                                <string>sr_Latn_BA</string>
+                                                <string>en_MP</string>
+                                                <string>ksb_TZ</string>
+                                                <string>ar_SA</string>
+                                                <string>smn_FI</string>
+                                                <string>ar_LY</string>
+                                                <string>en_AT</string>
+                                                <string>so_KE</string>
+                                                <string>fr_CD</string>
+                                                <string>af_NA</string>
+                                                <string>en_NU</string>
+                                                <string>es_PH</string>
+                                                <string>en_KI</string>
+                                                <string>en_JE</string>
+                                                <string>lkt</string>
+                                                <string>en_AU</string>
+                                                <string>fa_IR</string>
+                                                <string>pt_FR</string>
+                                                <string>uz_Latn_UZ</string>
+                                                <string>zh_Hans_CN</string>
+                                                <string>ewo_CM</string>
+                                                <string>fr_PF</string>
+                                                <string>ca_IT</string>
+                                                <string>es_GY</string>
+                                                <string>en_BZ</string>
+                                                <string>ar_KW</string>
+                                                <string>pt_GW</string>
+                                                <string>fr_FR</string>
+                                                <string>am_ET</string>
+                                                <string>en_VC</string>
+                                                <string>es_DM</string>
+                                                <string>fr_DJ</string>
+                                                <string>fr_CF</string>
+                                                <string>es_SV</string>
+                                                <string>en_MS</string>
+                                                <string>pt_ST</string>
+                                                <string>ar_SD</string>
+                                                <string>luy_KE</string>
+                                                <string>gd_GB</string>
+                                                <string>de_LI</string>
+                                                <string>it_VA</string>
+                                                <string>fr_CG</string>
+                                                <string>pt_CH</string>
+                                                <string>ckb_IQ</string>
+                                                <string>zh_Hans_SG</string>
+                                                <string>en_MT</string>
+                                                <string>ha_NE</string>
+                                                <string>en_ID</string>
+                                                <string>ewo</string>
+                                                <string>af_ZA</string>
+                                                <string>os_GE</string>
+                                                <string>om_KE</string>
+                                                <string>nl_SR</string>
+                                                <string>es_ES</string>
+                                                <string>es_DO</string>
+                                                <string>ar_IQ</string>
+                                                <string>fr_CH</string>
+                                                <string>nnh_CM</string>
+                                                <string>es_SX</string>
+                                                <string>es_419</string>
+                                                <string>en_MU</string>
+                                                <string>en_US_POSIX</string>
+                                                <string>yav_CM</string>
+                                                <string>luo_KE</string>
+                                                <string>dua_CM</string>
+                                                <string>et_EE</string>
+                                                <string>en_IE</string>
+                                                <string>ak_GH</string>
+                                                <string>rwk</string>
+                                                <string>es_CL</string>
+                                                <string>kea_CV</string>
+                                                <string>fr_CI</string>
+                                                <string>ckb_IR</string>
+                                                <string>fr_BE</string>
+                                                <string>se</string>
+                                                <string>en_NZ</string>
+                                                <string>en_MV</string>
+                                                <string>en_LR</string>
+                                                <string>es_PM</string>
+                                                <string>en_KN</string>
+                                                <string>nb_SJ</string>
+                                                <string>ha_NG</string>
+                                                <string>sg</string>
+                                                <string>sr_Cyrl_RS</string>
+                                                <string>ru_RU</string>
+                                                <string>en_ZW</string>
+                                                <string>sv_AX</string>
+                                                <string>si</string>
+                                                <string>ga_IE</string>
+                                                <string>en_VG</string>
+                                                <string>ff_MR</string>
+                                                <string>sk</string>
+                                                <string>ky_KG</string>
+                                                <string>agq_CM</string>
+                                                <string>mzn</string>
+                                                <string>fr_BF</string>
+                                                <string>mr_IN</string>
+                                                <string>en_MW</string>
+                                                <string>de_AT</string>
+                                                <string>az_Latn</string>
+                                                <string>en_LS</string>
+                                                <string>ka</string>
+                                                <string>naq_NA</string>
+                                                <string>sl</string>
+                                                <string>sn</string>
+                                                <string>sr_Latn_ME</string>
+                                                <string>fr_NC</string>
+                                                <string>so</string>
+                                                <string>is_IS</string>
+                                                <string>twq</string>
+                                                <string>ig_NG</string>
+                                                <string>sq</string>
+                                                <string>fo_FO</string>
+                                                <string>sr</string>
+                                                <string>tzm</string>
+                                                <string>ga</string>
+                                                <string>om</string>
+                                                <string>en_LT</string>
+                                                <string>bas_CM</string>
+                                                <string>se_NO</string>
+                                                <string>ki</string>
+                                                <string>nl_BE</string>
+                                                <string>ar_QA</string>
+                                                <string>gd</string>
+                                                <string>sv</string>
+                                                <string>kk</string>
+                                                <string>rn_BI</string>
+                                                <string>es_CO</string>
+                                                <string>az_Latn_AZ</string>
+                                                <string>kl</string>
+                                                <string>or</string>
+                                                <string>es_AG</string>
+                                                <string>ca</string>
+                                                <string>en_VI</string>
+                                                <string>km</string>
+                                                <string>os</string>
+                                                <string>sw</string>
+                                                <string>en_MY</string>
+                                                <string>kn</string>
+                                                <string>en_LU</string>
+                                                <string>fr_SY</string>
+                                                <string>ar_TN</string>
+                                                <string>en_JM</string>
+                                                <string>fr_PM</string>
+                                                <string>ko</string>
+                                                <string>fr_NE</string>
+                                                <string>ce</string>
+                                                <string>fr_MA</string>
+                                                <string>gl</string>
+                                                <string>ru_MD</string>
+                                                <string>es_BL</string>
+                                                <string>saq_KE</string>
+                                                <string>ks</string>
+                                                <string>fr_CM</string>
+                                                <string>lb_LU</string>
+                                                <string>gv_IM</string>
+                                                <string>fr_BI</string>
+                                                <string>en_LV</string>
+                                                <string>en_KR</string>
+                                                <string>es_NI</string>
+                                                <string>en_GB</string>
+                                                <string>kw</string>
+                                                <string>nl_SX</string>
+                                                <string>dav_KE</string>
+                                                <string>tr_CY</string>
+                                                <string>ky</string>
+                                                <string>en_UG</string>
+                                                <string>es_BM</string>
+                                                <string>en_TC</string>
+                                                <string>es_AI</string>
+                                                <string>ar_EG</string>
+                                                <string>fr_BJ</string>
+                                                <string>gu</string>
+                                                <string>es_PR</string>
+                                                <string>fr_RW</string>
+                                                <string>gv</string>
+                                                <string>lrc_IQ</string>
+                                                <string>sr_Cyrl_BA</string>
+                                                <string>es_MF</string>
+                                                <string>fr_MC</string>
+                                                <string>cs</string>
+                                                <string>bez_TZ</string>
+                                                <string>es_CR</string>
+                                                <string>asa_TZ</string>
+                                                <string>ar_EH</string>
+                                                <string>fo_DK</string>
+                                                <string>ms_Arab_BN</string>
+                                                <string>en_JP</string>
+                                                <string>sbp_TZ</string>
+                                                <string>en_IL</string>
+                                                <string>lt_LT</string>
+                                                <string>mfe</string>
+                                                <string>en_GD</string>
+                                                <string>es_LC</string>
+                                                <string>cy</string>
+                                                <string>ug_CN</string>
+                                                <string>ca_FR</string>
+                                                <string>es_BO</string>
+                                                <string>en_SA</string>
+                                                <string>fr_BL</string>
+                                                <string>bn_IN</string>
+                                                <string>uz_Cyrl_UZ</string>
+                                                <string>lrc_IR</string>
+                                                <string>az_Cyrl</string>
+                                                <string>en_IM</string>
+                                                <string>sw_KE</string>
+                                                <string>en_SB</string>
+                                                <string>pa_Arab</string>
+                                                <string>ur_PK</string>
+                                                <string>haw_US</string>
+                                                <string>ar_SO</string>
+                                                <string>en_IN</string>
+                                                <string>fil</string>
+                                                <string>fr_MF</string>
+                                                <string>en_WS</string>
+                                                <string>es_CU</string>
+                                                <string>es_BQ</string>
+                                                <string>ja_JP</string>
+                                                <string>fy_NL</string>
+                                                <string>en_SC</string>
+                                                <string>yue_Hant_HK</string>
+                                                <string>en_IO</string>
+                                                <string>pt_PT</string>
+                                                <string>en_HK</string>
+                                                <string>en_GG</string>
+                                                <string>fr_MG</string>
+                                                <string>de_LU</string>
+                                                <string>tzm_MA</string>
+                                                <string>es_BR</string>
+                                                <string>en_TH</string>
+                                                <string>en_SD</string>
+                                                <string>nds_DE</string>
+                                                <string>shi_Tfng</string>
+                                                <string>ln_AO</string>
+                                                <string>as_IN</string>
+                                                <string>en_GH</string>
+                                                <string>ms_MY</string>
+                                                <string>ro_RO</string>
+                                                <string>jgo_CM</string>
+                                                <string>es_CW</string>
+                                                <string>dua</string>
+                                                <string>en_UM</string>
+                                                <string>es_BS</string>
+                                                <string>en_SE</string>
+                                                <string>kn_IN</string>
+                                                <string>en_KY</string>
+                                                <string>vun_TZ</string>
+                                                <string>kln</string>
+                                                <string>lrc</string>
+                                                <string>en_GI</string>
+                                                <string>ca_ES</string>
+                                                <string>rof</string>
+                                                <string>pt_CV</string>
+                                                <string>kok</string>
+                                                <string>pt_BR</string>
+                                                <string>ar_DJ</string>
+                                                <string>yi_001</string>
+                                                <string>fi_FI</string>
+                                                <string>zh</string>
+                                                <string>es_PY</string>
+                                                <string>ar_SS</string>
+                                                <string>mua</string>
+                                                <string>sr_Cyrl_ME</string>
+                                                <string>vai_Vaii_LR</string>
+                                                <string>en_001</string>
+                                                <string>nl_NL</string>
+                                                <string>en_TK</string>
+                                                <string>si_LK</string>
+                                                <string>en_SG</string>
+                                                <string>fr_DZ</string>
+                                                <string>ca_AD</string>
+                                                <string>sv_SE</string>
+                                                <string>pt_AO</string>
+                                                <string>vi</string>
+                                                <string>xog_UG</string>
+                                                <string>xog</string>
+                                                <string>en_IS</string>
+                                                <string>nb</string>
+                                                <string>seh_MZ</string>
+                                                <string>es_AR</string>
+                                                <string>sk_SK</string>
+                                                <string>en_SH</string>
+                                                <string>ti_ER</string>
+                                                <string>nd</string>
+                                                <string>az_Cyrl_AZ</string>
+                                                <string>zu</string>
+                                                <string>ne</string>
+                                                <string>nd_ZW</string>
+                                                <string>el_CY</string>
+                                                <string>en_IT</string>
+                                                <string>nl_BQ</string>
+                                                <string>da_GL</string>
+                                                <string>ja</string>
+                                                <string>rm</string>
+                                                <string>fr_ML</string>
+                                                <string>rn</string>
+                                                <string>en_VU</string>
+                                                <string>rof_TZ</string>
+                                                <string>ro</string>
+                                                <string>ebu_KE</string>
+                                                <string>ru_KG</string>
+                                                <string>en_SI</string>
+                                                <string>sg_CF</string>
+                                                <string>mfe_MU</string>
+                                                <string>nl</string>
+                                                <string>brx</string>
+                                                <string>bs_Latn</string>
+                                                <string>fa</string>
+                                                <string>zgh_MA</string>
+                                                <string>en_GM</string>
+                                                <string>shi_Latn</string>
+                                                <string>en_FI</string>
+                                                <string>nn</string>
+                                                <string>en_EE</string>
+                                                <string>ru</string>
+                                                <string>yue</string>
+                                                <string>kam_KE</string>
+                                                <string>fur</string>
+                                                <string>vai_Vaii</string>
+                                                <string>ar_ER</string>
+                                                <string>rw</string>
+                                                <string>ti_ET</string>
+                                                <string>ff</string>
+                                                <string>luo</string>
+                                                <string>fa_AF</string>
+                                                <string>nl_CW</string>
+                                                <string>es_MQ</string>
+                                                <string>en_HR</string>
+                                                <string>en_FJ</string>
+                                                <string>fi</string>
+                                                <string>pt_MO</string>
+                                                <string>be</string>
+                                                <string>en_US</string>
+                                                <string>en_TO</string>
+                                                <string>en_SK</string>
+                                                <string>bg</string>
+                                                <string>ru_BY</string>
+                                                <string>it_IT</string>
+                                                <string>ml_IN</string>
+                                                <string>gsw_CH</string>
+                                                <string>qu_EC</string>
+                                                <string>fo</string>
+                                                <string>sv_FI</string>
+                                                <string>en_FK</string>
+                                                <string>nus</string>
+                                                <string>ta_LK</string>
+                                                <string>vun</string>
+                                                <string>sr_Latn</string>
+                                                <string>es_BZ</string>
+                                                <string>fr</string>
+                                                <string>en_SL</string>
+                                                <string>bm</string>
+                                                <string>es_VC</string>
+                                                <string>ar_BH</string>
+                                                <string>guz</string>
+                                                <string>bn</string>
+                                                <string>bo</string>
+                                                <string>ar_SY</string>
+                                                <string>es_MS</string>
+                                                <string>lo_LA</string>
+                                                <string>ne_NP</string>
+                                                <string>uz_Latn</string>
+                                                <string>be_BY</string>
+                                                <string>es_IC</string>
+                                                <string>sr_Latn_XK</string>
+                                                <string>ar_MA</string>
+                                                <string>pa_Guru_IN</string>
+                                                <string>br</string>
+                                                <string>luy</string>
+                                                <string>kde_TZ</string>
+                                                <string>es_AW</string>
+                                                <string>bs</string>
+                                                <string>fy</string>
+                                                <string>fur_IT</string>
+                                                <string>hu_HU</string>
+                                                <string>ar_AE</string>
+                                                <string>en_HU</string>
+                                                <string>sah_RU</string>
+                                                <string>zh_Hans</string>
+                                                <string>en_FM</string>
+                                                <string>fr_MQ</string>
+                                                <string>ko_KP</string>
+                                                <string>en_150</string>
+                                                <string>en_DE</string>
+                                                <string>ce_RU</string>
+                                                <string>en_CA</string>
+                                                <string>hsb_DE</string>
+                                                <string>sq_AL</string>
+                                                <string>en_TR</string>
+                                                <string>ro_MD</string>
+                                                <string>es_VE</string>
+                                                <string>tg_TJ</string>
+                                                <string>fr_WF</string>
+                                                <string>mt_MT</string>
+                                                <string>kab</string>
+                                                <string>nmg_CM</string>
+                                                <string>ms_SG</string>
+                                                <string>en_GR</string>
+                                                <string>ru_UA</string>
+                                                <string>fr_MR</string>
+                                                <string>zh_Hans_MO</string>
+                                                <string>de_IT</string>
+                                                <string>ff_GN</string>
+                                                <string>bs_Cyrl</string>
+                                                <string>nds_NL</string>
+                                                <string>es_KN</string>
+                                                <string>sw_UG</string>
+                                                <string>yue_Hans</string>
+                                                <string>ko_KR</string>
+                                                <string>en_DG</string>
+                                                <string>bo_IN</string>
+                                                <string>en_CC</string>
+                                                <string>shi_Tfng_MA</string>
+                                                <string>lag</string>
+                                                <string>it_SM</string>
+                                                <string>os_RU</string>
+                                                <string>en_TT</string>
+                                                <string>ms_Arab_MY</string>
+                                                <string>sq_MK</string>
+                                                <string>es_VG</string>
+                                                <string>bem_ZM</string>
+                                                <string>kde</string>
+                                                <string>ar_OM</string>
+                                                <string>kk_KZ</string>
+                                                <string>cgg</string>
+                                                <string>bas</string>
+                                                <string>kam</string>
+                                                <string>wae</string>
+                                                <string>es_MX</string>
+                                                <string>sah</string>
+                                                <string>zh_Hant</string>
+                                                <string>en_GU</string>
+                                                <string>fr_MU</string>
+                                                <string>fr_KM</string>
+                                                <string>ar_LB</string>
+                                                <string>en_BA</string>
+                                                <string>en_TV</string>
+                                                <string>sr_Cyrl</string>
+                                                <string>mzn_IR</string>
+                                                <string>es_VI</string>
+                                                <string>dje</string>
+                                                <string>kab_DZ</string>
+                                                <string>fil_PH</string>
+                                                <string>se_SE</string>
+                                                <string>vai</string>
+                                                <string>hr_HR</string>
+                                                <string>bs_Latn_BA</string>
+                                                <string>nl_AW</string>
+                                                <string>dav</string>
+                                                <string>so_SO</string>
+                                                <string>ar_PS</string>
+                                                <string>en_FR</string>
+                                                <string>uz_Cyrl</string>
+                                                <string>ff_SN</string>
+                                                <string>en_BB</string>
+                                                <string>ki_KE</string>
+                                                <string>en_TW</string>
+                                                <string>naq</string>
+                                                <string>en_SS</string>
+                                                <string>mg_MG</string>
+                                                <string>mas_KE</string>
+                                                <string>en_RO</string>
+                                                <string>en_PG</string>
+                                                <string>mgh</string>
+                                                <string>dyo_SN</string>
+                                                <string>mas</string>
+                                                <string>agq</string>
+                                                <string>bn_BD</string>
+                                                <string>haw</string>
+                                                <string>yi</string>
+                                                <string>nb_NO</string>
+                                                <string>da_DK</string>
+                                                <string>en_DK</string>
+                                                <string>saq</string>
+                                                <string>ug</string>
+                                                <string>cy_GB</string>
+                                                <string>fr_YT</string>
+                                                <string>jmc</string>
+                                                <string>ses_ML</string>
+                                                <string>en_PH</string>
+                                                <string>de_DE</string>
+                                                <string>ar_YE</string>
+                                                <string>es_TC</string>
+                                                <string>bm_ML</string>
+                                                <string>yo</string>
+                                                <string>lkt_US</string>
+                                                <string>uz_Arab_AF</string>
+                                                <string>jgo</string>
+                                                <string>sl_SI</string>
+                                                <string>pt_LU</string>
+                                                <string>uk</string>
+                                                <string>en_CH</string>
+                                                <string>asa</string>
+                                                <string>en_BD</string>
+                                                <string>lg_UG</string>
+                                                <string>nds</string>
+                                                <string>qu_PE</string>
+                                                <string>mgo</string>
+                                                <string>id_ID</string>
+                                                <string>en_NA</string>
+                                                <string>en_GY</string>
+                                                <string>zgh</string>
+                                                <string>pt_MZ</string>
+                                                <string>fr_LU</string>
+                                                <string>dsb</string>
+                                                <string>mas_TZ</string>
+                                                <string>en_DM</string>
+                                                <string>ta_MY</string>
+                                                <string>es_GD</string>
+                                                <string>en_BE</string>
+                                                <string>mg</string>
+                                                <string>ur</string>
+                                                <string>fr_GA</string>
+                                                <string>ka_GE</string>
+                                                <string>nmg</string>
+                                                <string>en_TZ</string>
+                                                <string>eu_ES</string>
+                                                <string>ar_DZ</string>
+                                                <string>id</string>
+                                                <string>so_DJ</string>
+                                                <string>hsb</string>
+                                                <string>yav</string>
+                                                <string>mk</string>
+                                                <string>pa_Arab_PK</string>
+                                                <string>ml</string>
+                                                <string>en_ER</string>
+                                                <string>ig</string>
+                                                <string>se_FI</string>
+                                                <string>mn</string>
+                                                <string>ksb</string>
+                                                <string>uz</string>
+                                                <string>vi_VN</string>
+                                                <string>ii</string>
+                                                <string>qu</string>
+                                                <string>en_PK</string>
+                                                <string>ee</string>
+                                                <string>ast_ES</string>
+                                                <string>yue_Hant</string>
+                                                <string>mr</string>
+                                                <string>ms</string>
+                                                <string>en_ES</string>
+                                                <string>ha_GH</string>
+                                                <string>it_CH</string>
+                                                <string>sq_XK</string>
+                                                <string>mt</string>
+                                                <string>en_CK</string>
+                                                <string>br_FR</string>
+                                                <string>en_BG</string>
+                                                <string>es_GF</string>
+                                                <string>tk_TM</string>
+                                                <string>sr_Cyrl_XK</string>
+                                                <string>ksf</string>
+                                                <string>en_SX</string>
+                                                <string>bg_BG</string>
+                                                <string>en_PL</string>
+                                                <string>af</string>
+                                                <string>el</string>
+                                                <string>cs_CZ</string>
+                                                <string>fr_TD</string>
+                                                <string>zh_Hans_HK</string>
+                                                <string>is</string>
+                                                <string>ksh</string>
+                                                <string>my</string>
+                                                <string>mn_MN</string>
+                                                <string>en</string>
+                                                <string>it</string>
+                                                <string>dsb_DE</string>
+                                                <string>ii_CN</string>
+                                                <string>eo</string>
+                                                <string>iu</string>
+                                                <string>en_ZA</string>
+                                                <string>smn</string>
+                                                <string>en_AD</string>
+                                                <string>ak</string>
+                                                <string>en_RU</string>
+                                                <string>kkj_CM</string>
+                                                <string>am</string>
+                                                <string>es</string>
+                                                <string>et</string>
+                                                <string>uk_UA</string>
+                                            </allowedInputSourceLocales>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="qod-R6-fZE">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="VGl-Ah-qlZ">
+                                    <rect key="frame" x="423" y="1" width="16" height="146"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Boa-3k-jOe">
+                                <rect key="frame" x="200" y="13" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tzs-WI-5EN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doneAction:" target="PMR-UX-oWJ" id="ap4-SV-lKj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wBA-XH-wfe" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="0ko-3R-0QC"/>
+                            <constraint firstAttribute="bottom" secondItem="Boa-3k-jOe" secondAttribute="bottom" constant="20" id="5T3-iS-lfQ"/>
+                            <constraint firstItem="9D3-cJ-AZE" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="Ejh-PU-0cE"/>
+                            <constraint firstItem="wBA-XH-wfe" firstAttribute="top" secondItem="PGL-V3-67q" secondAttribute="bottom" constant="8" id="OQf-1B-sWx"/>
+                            <constraint firstItem="Boa-3k-jOe" firstAttribute="centerX" secondItem="Hzd-78-7cl" secondAttribute="centerX" id="V81-YC-DOw"/>
+                            <constraint firstItem="R5W-bM-mUv" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="XZ7-PH-lFX"/>
+                            <constraint firstItem="9D3-cJ-AZE" firstAttribute="top" secondItem="R5W-bM-mUv" secondAttribute="bottom" constant="8" id="coJ-Ps-N8Z"/>
+                            <constraint firstItem="PGL-V3-67q" firstAttribute="leading" secondItem="Hzd-78-7cl" secondAttribute="leading" constant="20" id="fPg-km-3pU"/>
+                            <constraint firstItem="Boa-3k-jOe" firstAttribute="top" secondItem="T4M-yV-MR3" secondAttribute="bottom" constant="20" id="fTo-Al-yhV"/>
+                            <constraint firstAttribute="trailing" secondItem="R5W-bM-mUv" secondAttribute="trailing" constant="20" id="gQX-VK-1l3"/>
+                            <constraint firstItem="R5W-bM-mUv" firstAttribute="top" secondItem="Hzd-78-7cl" secondAttribute="top" constant="20" id="hYP-rY-Gk2"/>
+                            <constraint firstItem="PGL-V3-67q" firstAttribute="top" secondItem="9D3-cJ-AZE" secondAttribute="bottom" constant="20" id="sUh-75-YUw"/>
+                            <constraint firstAttribute="trailing" secondItem="PGL-V3-67q" secondAttribute="trailing" constant="20" id="tLB-gp-W9F"/>
+                            <constraint firstAttribute="trailing" secondItem="wBA-XH-wfe" secondAttribute="trailing" constant="20" id="uBC-ws-fNZ"/>
+                            <constraint firstAttribute="trailing" secondItem="9D3-cJ-AZE" secondAttribute="trailing" constant="20" id="xLN-dl-8dz"/>
+                        </constraints>
+                    </view>
+                    <touchBar key="touchBar" id="a3Q-uu-Seg">
+                        <touchBarItems>
+                            <touchBarItem id="NZv-IV-FUN">
+                                <viewController key="viewController" id="eLq-xF-ZWN">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-S7-ou6">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1mS-d5-BqY">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
+                    <connections>
+                        <outlet property="doneButton" destination="Boa-3k-jOe" id="ZrT-Vn-agA"/>
+                        <outlet property="doneTouchBarButton" destination="JdD-S7-ou6" id="tQu-IN-KAV"/>
+                        <outlet property="scriptContentTextFieldCell" destination="fS4-Ey-Caw" id="dlh-Hd-TPK"/>
+                        <outlet property="scriptNameTextField" destination="9D3-cJ-AZE" id="ABW-h3-68e"/>
+                        <outlet property="scriptNameTextFieldCell" destination="Bc2-cb-ab0" id="Ysc-XB-bMW"/>
+                        <outlet property="scriptTextView" destination="T4M-yV-MR3" id="484-Rk-edz"/>
+                    </connections>
+                </viewController>
+                <customObject id="rt7-ZS-dzn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="859" y="227"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
-                <application id="hnw-xV-0zn" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6"/>
-                    <connections>
-                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
-                    </connections>
-                </application>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Scripty" customModuleProvider="target">
                     <connections>
                         <outlet property="statusMenu" destination="nNy-Xm-6gA" id="YrF-fP-iBE"/>
                     </connections>
                 </customObject>
-                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="nNy-Xm-6gA" customClass="MainMenu" customModule="Scripty" customModuleProvider="target"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="Window" id="Ud6-Hf-Fja">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="Y74-qu-7q7">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="BNp-ak-yuB">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="ewh-T9-Riy"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="r6O-HZ-NdW">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="XOt-U7-TJa"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="x7S-Wn-Us0"/>
+                                        <menuItem title="Bring All to Front" id="Y0V-Xi-Yze">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="qiQ-iS-jhT"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="XDb-f6-c1J">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="8yk-xl-5sA">
+                                    <items>
+                                        <menuItem title="Scripty Help" keyEquivalent="?" id="F1N-Pm-Amo">
+                                            <connections>
+                                                <action selector="showHelp:" target="Ady-hI-5gd" id="yfF-R2-oea"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="eXb-FX-X10">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="lBI-g0-4dm">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="aJg-NM-jHy">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="GDu-NC-uwE"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="M1O-IH-QT9">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="RnK-iv-KjH"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="iCR-T3-qHe"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="C8v-OT-oHB">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="RV7-Qn-ZYk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="TH5-99-mOH">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="ndf-r9-avP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="LYK-i3-tI7">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="Kt4-ok-lQa"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste and Match Style" keyEquivalent="V" id="YQD-lv-T87">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="AtG-WH-y7Y"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="Ryx-8W-taf">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="znc-DD-zH6"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="f45-5H-2Zf">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="07r-Xv-JmI"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="nY1-lA-5mN"/>
+                                        <menuItem title="Find" id="xgu-zh-M4q">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Find" id="LSm-Wg-wab">
+                                                <items>
+                                                    <menuItem title="Find…" tag="1" keyEquivalent="f" id="RMW-SX-Bh6">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="QmO-xV-v6z"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="1X8-ot-6xI">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="aAk-ih-Mxj"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="j5V-KZ-m6c">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="8Zf-4H-s4g"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="Tvw-rj-GnI">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="Yke-BX-LEK"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="ddj-GB-ZFR">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="kwK-T6-MLQ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Jump to Selection" keyEquivalent="j" id="LDK-9q-aUf">
+                                                        <connections>
+                                                            <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="7fZ-hb-cJ2"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Spelling and Grammar" id="T2g-w6-UHh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Spelling" id="pbc-RK-W1V">
+                                                <items>
+                                                    <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="kxc-GD-I6h">
+                                                        <connections>
+                                                            <action selector="showGuessPanel:" target="Ady-hI-5gd" id="gDw-Px-VcB"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Check Document Now" keyEquivalent=";" id="a8s-3K-RVc">
+                                                        <connections>
+                                                            <action selector="checkSpelling:" target="Ady-hI-5gd" id="TBF-Ih-4g1"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="3gv-ox-cfo"/>
+                                                    <menuItem title="Check Spelling While Typing" id="CDL-G3-o2O">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleContinuousSpellChecking:" target="Ady-hI-5gd" id="UOF-Fv-VyS"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Check Grammar With Spelling" id="XJO-xf-zug">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleGrammarChecking:" target="Ady-hI-5gd" id="YNL-HN-jca"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Correct Spelling Automatically" id="1JN-qb-cBo">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticSpellingCorrection:" target="Ady-hI-5gd" id="w26-YI-j7G"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Substitutions" id="OUO-iJ-9pd">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Substitutions" id="Vw4-Z0-PlU">
+                                                <items>
+                                                    <menuItem title="Show Substitutions" id="1iB-uE-4jQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="orderFrontSubstitutionsPanel:" target="Ady-hI-5gd" id="3Ku-Xg-pCj"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="k8l-ZS-xz6"/>
+                                                    <menuItem title="Smart Copy/Paste" id="2H9-w0-C3j">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleSmartInsertDelete:" target="Ady-hI-5gd" id="n5J-sR-XF7"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Quotes" id="xdn-zL-uUd">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticQuoteSubstitution:" target="Ady-hI-5gd" id="ner-2N-MhI"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Dashes" id="n8c-Cd-xex">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDashSubstitution:" target="Ady-hI-5gd" id="jny-Vf-Hu2"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Links" id="f8m-Wh-XVr">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticLinkDetection:" target="Ady-hI-5gd" id="WdX-q1-Rzs"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Data Detectors" id="L5J-Wf-gRQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDataDetection:" target="Ady-hI-5gd" id="c2K-eQ-pAc"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Text Replacement" id="JuN-gW-BNS">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticTextReplacement:" target="Ady-hI-5gd" id="3gr-ms-FRZ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Transformations" id="id2-K2-aey">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Transformations" id="zT0-1U-OdG">
+                                                <items>
+                                                    <menuItem title="Make Upper Case" id="WBl-9Y-Z6Y">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="uppercaseWord:" target="Ady-hI-5gd" id="bFB-di-4OV"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Make Lower Case" id="LCn-lI-zSI">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="lowercaseWord:" target="Ady-hI-5gd" id="ceH-Af-s7E"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Capitalize" id="BdT-Zi-YJa">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="capitalizeWord:" target="Ady-hI-5gd" id="sbF-wV-RzH"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Speech" id="iq6-n7-cxf">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Speech" id="kKr-Ux-xel">
+                                                <items>
+                                                    <menuItem title="Start Speaking" id="313-mG-9LL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="startSpeaking:" target="Ady-hI-5gd" id="4Cq-2g-IG9"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Stop Speaking" id="ofx-m7-fg7">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="stopSpeaking:" target="Ady-hI-5gd" id="SH7-zQ-ceE"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="View" id="y7o-LA-hZ2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="View" id="mFB-gq-CJT">
+                                    <items>
+                                        <menuItem title="Show Toolbar" keyEquivalent="t" id="Pah-Qd-d1P">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="ZFx-NV-OWm"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Customize Toolbar…" id="XVt-v8-biF">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="B4l-aj-DgP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VFb-dA-W0i"/>
+                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="KfE-mh-byn">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="vmu-G5-p8v"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="Xe5-Z4-QKG">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="5di-2i-5Ty"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="File" id="EPj-5F-0C3">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="Ehb-xI-8q6">
+                                    <items>
+                                        <menuItem title="New" keyEquivalent="n" id="WQm-9A-ZZS">
+                                            <connections>
+                                                <action selector="newDocument:" target="Ady-hI-5gd" id="2SR-sD-46M"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Open…" keyEquivalent="o" id="cqs-g1-hQd">
+                                            <connections>
+                                                <action selector="openDocument:" target="Ady-hI-5gd" id="PgW-1z-0aL"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Open Recent" id="GFU-at-Ok4">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="DnD-2R-ATE">
+                                                <items>
+                                                    <menuItem title="Clear Menu" id="o7I-RV-cLS">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="clearRecentDocuments:" target="Ady-hI-5gd" id="amt-6R-oQn"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="428-tB-QOV"/>
+                                        <menuItem title="Close" keyEquivalent="w" id="spR-sJ-264">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="Bdf-vb-uuF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Save…" keyEquivalent="s" id="mg8-pu-Wwl">
+                                            <connections>
+                                                <action selector="saveDocument:" target="Ady-hI-5gd" id="QVR-Rm-yrw"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Save As…" keyEquivalent="S" id="gbI-UW-kLW">
+                                            <connections>
+                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="fVb-XS-Zin"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="SIC-7J-c0q">
+                                            <connections>
+                                                <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="vKV-of-JS6"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="JlU-fe-2Nx"/>
+                                        <menuItem title="Page Setup…" keyEquivalent="P" id="FAZ-tD-lem">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="runPageLayout:" target="Ady-hI-5gd" id="Bid-pi-0RP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Print…" keyEquivalent="p" id="qK8-cP-Gse">
+                                            <connections>
+                                                <action selector="print:" target="Ady-hI-5gd" id="e75-Uh-rE6"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Format" id="GG3-2n-rBS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Format" id="Hvl-me-5NH">
+                                    <items>
+                                        <menuItem title="Font" id="m36-pq-evT">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Font" systemMenu="font" id="MDg-2a-hUY">
+                                                <items>
+                                                    <menuItem title="Show Fonts" keyEquivalent="t" id="zHm-30-bFc"/>
+                                                    <menuItem title="Bold" tag="2" keyEquivalent="b" id="S9Q-tB-eKv"/>
+                                                    <menuItem title="Italic" tag="1" keyEquivalent="i" id="FtT-ui-GnD"/>
+                                                    <menuItem title="Underline" keyEquivalent="u" id="s1j-cm-MRn">
+                                                        <connections>
+                                                            <action selector="underline:" target="Ady-hI-5gd" id="Zqs-Jc-xYJ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="5Ik-qr-zim"/>
+                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="aIr-7R-B7L"/>
+                                                    <menuItem title="Smaller" tag="4" keyEquivalent="-" id="Qhh-h9-Ut3"/>
+                                                    <menuItem isSeparatorItem="YES" id="LFl-hW-BvS"/>
+                                                    <menuItem title="Kern" id="5UF-bZ-Cn7">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Kern" id="Lt2-bj-6Jg">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="W4z-KH-7VU">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="useStandardKerning:" target="Ady-hI-5gd" id="wph-P5-ooj"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Use None" id="34P-iz-uOu">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="turnOffKerning:" target="Ady-hI-5gd" id="8ht-FF-8Ob"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Tighten" id="d0y-Rd-Dsq">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="tightenKerning:" target="Ady-hI-5gd" id="5nw-XW-j74"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Loosen" id="K5w-DA-oxm">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="loosenKerning:" target="Ady-hI-5gd" id="iDc-WE-6tH"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="Ligatures" id="6YT-On-tFW">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Ligatures" id="X02-iE-pRX">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="z3N-f7-U4k">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="useStandardLigatures:" target="Ady-hI-5gd" id="IQ8-YX-qnP"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Use None" id="3HD-Au-44C">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="turnOffLigatures:" target="Ady-hI-5gd" id="whp-kC-IaW"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Use All" id="JhI-P6-jVN">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="useAllLigatures:" target="Ady-hI-5gd" id="6r8-Op-Ysx"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="Baseline" id="MuY-IF-AGM">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Baseline" id="01i-oi-4ux">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="nRK-j4-LaF">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="unscript:" target="Ady-hI-5gd" id="nGP-2a-MXg"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Superscript" id="KZE-HO-w71">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="superscript:" target="Ady-hI-5gd" id="Qb7-6R-WVK"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Subscript" id="2GV-og-UvW">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="subscript:" target="Ady-hI-5gd" id="irr-tp-gcu"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Raise" id="SQE-jj-qoR">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="raiseBaseline:" target="Ady-hI-5gd" id="aej-ku-qnV"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Lower" id="FGY-bW-SqF">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="lowerBaseline:" target="Ady-hI-5gd" id="b9d-vm-M8K"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="wzH-nx-6dC"/>
+                                                    <menuItem title="Show Colors" keyEquivalent="C" id="LfR-Yv-zQM">
+                                                        <connections>
+                                                            <action selector="orderFrontColorPanel:" target="Ady-hI-5gd" id="CLi-oh-UGE"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="7UY-jy-7PM"/>
+                                                    <menuItem title="Copy Style" keyEquivalent="c" id="e3u-h9-NMN">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="copyFont:" target="Ady-hI-5gd" id="e4z-Sq-djh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Paste Style" keyEquivalent="v" id="0t3-kZ-Bhv">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="pasteFont:" target="Ady-hI-5gd" id="8wT-K3-xCZ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Text" id="Md2-dS-GzJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Text" id="ads-LO-cOi">
+                                                <items>
+                                                    <menuItem title="Align Left" keyEquivalent="{" id="b5m-P0-tYi">
+                                                        <connections>
+                                                            <action selector="alignLeft:" target="Ady-hI-5gd" id="msM-MI-G65"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Center" keyEquivalent="|" id="pAa-HJ-xXK">
+                                                        <connections>
+                                                            <action selector="alignCenter:" target="Ady-hI-5gd" id="sun-z0-CPu"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Justify" id="uVS-an-0sf">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="alignJustified:" target="Ady-hI-5gd" id="AIb-yC-kEH"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Align Right" keyEquivalent="}" id="Soj-st-4hR">
+                                                        <connections>
+                                                            <action selector="alignRight:" target="Ady-hI-5gd" id="iS2-lm-G4U"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="4P4-R6-HCk"/>
+                                                    <menuItem title="Writing Direction" id="n3N-kP-gEt">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Writing Direction" id="ZJm-by-7eE">
+                                                            <items>
+                                                                <menuItem title="Paragraph" enabled="NO" id="dB9-dI-f88">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="tiq-St-ZhS">
+                                                                    <string key="title">	Default</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeBaseWritingDirectionNatural:" target="Ady-hI-5gd" id="qqx-jZ-kGw"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="z1k-xp-ogh">
+                                                                    <string key="title">	Left to Right</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeBaseWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="IVO-9E-qIg"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="ZSH-JV-Onc">
+                                                                    <string key="title">	Right to Left</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeBaseWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="Snr-NX-m7x"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem isSeparatorItem="YES" id="K6g-Go-Sy0"/>
+                                                                <menuItem title="Selection" enabled="NO" id="hf9-eM-ZOz">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="3K5-td-Git">
+                                                                    <string key="title">	Default</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeTextWritingDirectionNatural:" target="Ady-hI-5gd" id="kou-Us-22R"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="Lqm-pb-rBv">
+                                                                    <string key="title">	Left to Right</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeTextWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="PUa-o1-9bW"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="Q2B-pi-RRg">
+                                                                    <string key="title">	Right to Left</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeTextWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="E6S-us-QPZ"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="kJ3-zJ-Qu8"/>
+                                                    <menuItem title="Show Ruler" id="2Jn-VF-Ry3">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleRuler:" target="Ady-hI-5gd" id="9PV-Z3-n9q"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Copy Ruler" keyEquivalent="c" id="Bv6-6A-raS">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="copyRuler:" target="Ady-hI-5gd" id="XTa-Br-Tnt"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Paste Ruler" keyEquivalent="v" id="ev3-13-hDN">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="pasteRuler:" target="Ady-hI-5gd" id="qQe-h6-mvN"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="281" y="-149"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="UBV-W3-WTo">
+            <objects>
+                <application id="HjM-Fm-gz0" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="3j2-jV-aDF">
+                        <items>
+                            <menuItem title="Scripty" id="RGl-Q8-Luj">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Scripty" systemMenu="apple" id="EhG-eL-8mr">
+                                    <items>
+                                        <menuItem title="About Scripty" id="tOM-Dr-kcZ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="dvS-Ti-ExN"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="Auu-F4-gU3"/>
+                                        <menuItem isSeparatorItem="YES" id="84p-y8-POG"/>
+                                        <menuItem title="Services" id="fWq-nd-8g6">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="UBe-Q7-dbV"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="ir6-IS-Wbc"/>
+                                        <menuItem title="Hide Scripty" keyEquivalent="h" id="Exo-gt-xMp"/>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="0up-n7-yHF">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Wds-jF-t2t">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="EA5-9e-DEu"/>
+                                        <menuItem title="Quit Scripty" keyEquivalent="q" id="3ZH-z8-eBc"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="File" id="xl5-df-Nac">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="hnZ-J9-6mh">
+                                    <items>
+                                        <menuItem title="New" keyEquivalent="n" id="jWl-eq-ALb"/>
+                                        <menuItem title="Open…" keyEquivalent="o" id="LCm-Di-w66"/>
+                                        <menuItem title="Open Recent" id="7eM-bp-pGj">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="ifV-fH-0IL">
+                                                <items>
+                                                    <menuItem title="Clear Menu" id="ZcC-i4-197">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="CsJ-q7-wKG"/>
+                                        <menuItem title="Close" keyEquivalent="w" id="zvb-cA-4n2"/>
+                                        <menuItem title="Save…" keyEquivalent="s" id="67U-1i-Y2J"/>
+                                        <menuItem title="Save As…" keyEquivalent="S" id="53f-cU-aOC"/>
+                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="5Mx-Ld-HQL"/>
+                                        <menuItem isSeparatorItem="YES" id="uIy-Nb-oNb"/>
+                                        <menuItem title="Page Setup…" keyEquivalent="P" id="Bnv-ry-oiC">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Print…" keyEquivalent="p" id="CNd-fm-Ana"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="Ehx-7k-Gdv">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="kXt-0p-7OL">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="ot6-hL-Uq0"/>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="m5f-Qg-XAI"/>
+                                        <menuItem isSeparatorItem="YES" id="4g8-Vd-NMS"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="aGO-6h-b3R"/>
+                                        <menuItem title="Copy" keyEquivalent="c" id="YQr-yt-xST"/>
+                                        <menuItem title="Paste" keyEquivalent="v" id="CjV-ga-nAA"/>
+                                        <menuItem title="Paste and Match Style" keyEquivalent="V" id="muP-fN-fXx">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="CE1-IP-j37">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="VCk-Ko-Jbz"/>
+                                        <menuItem isSeparatorItem="YES" id="Mwd-oW-bcj"/>
+                                        <menuItem title="Find" id="the-UH-chf">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Find" id="Zuc-Lf-Ro8">
+                                                <items>
+                                                    <menuItem title="Find…" tag="1" keyEquivalent="f" id="Dqg-NN-0Jc"/>
+                                                    <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="A0A-qx-qPZ">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                    </menuItem>
+                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="p4S-eA-xkE"/>
+                                                    <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="BGK-os-O3N"/>
+                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="Eqe-7M-T4w"/>
+                                                    <menuItem title="Jump to Selection" keyEquivalent="j" id="EKe-ZE-DqX"/>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Spelling and Grammar" id="NbE-Te-qnH">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Spelling" id="SoO-fQ-sif">
+                                                <items>
+                                                    <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="bur-3Z-vMa"/>
+                                                    <menuItem title="Check Document Now" keyEquivalent=";" id="dCN-0q-W4b"/>
+                                                    <menuItem isSeparatorItem="YES" id="mhI-NC-me2"/>
+                                                    <menuItem title="Check Spelling While Typing" id="YAO-dr-TiC">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Check Grammar With Spelling" id="nXo-vh-ZjZ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Correct Spelling Automatically" id="IH5-Tw-2Ur">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Substitutions" id="LiO-hs-Tsx">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Substitutions" id="Ghp-av-kJg">
+                                                <items>
+                                                    <menuItem title="Show Substitutions" id="5jk-eF-HDd">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="gtu-jQ-qyn"/>
+                                                    <menuItem title="Smart Copy/Paste" id="dhs-We-2ZK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Quotes" id="coO-xd-27c">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Dashes" id="UJj-7J-YfC">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Links" id="1cV-Ms-wAg">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Data Detectors" id="D7S-o1-jvE">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Text Replacement" id="3IM-re-VfW">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Transformations" id="xeW-5w-ERn">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Transformations" id="uqY-QQ-1Wy">
+                                                <items>
+                                                    <menuItem title="Make Upper Case" id="pok-wj-W5Z">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Make Lower Case" id="ERe-wq-rVg">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Capitalize" id="evl-eK-J37">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Speech" id="Tdb-TJ-wbv">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Speech" id="KJx-zw-znO">
+                                                <items>
+                                                    <menuItem title="Start Speaking" id="LQ2-0u-Z7C">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Stop Speaking" id="eXe-ld-gJJ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Format" id="tOa-Pn-L3U">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Format" id="qBF-LT-H8E">
+                                    <items>
+                                        <menuItem title="Font" id="cGP-tp-1ub">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Font" systemMenu="font" id="t9G-Tc-oTf">
+                                                <items>
+                                                    <menuItem title="Show Fonts" keyEquivalent="t" id="eqj-Ux-6Lf"/>
+                                                    <menuItem title="Bold" tag="2" keyEquivalent="b" id="zyA-BX-Cpf"/>
+                                                    <menuItem title="Italic" tag="1" keyEquivalent="i" id="0QL-15-cqy"/>
+                                                    <menuItem title="Underline" keyEquivalent="u" id="YOa-v6-k0v"/>
+                                                    <menuItem isSeparatorItem="YES" id="e9n-31-Ehm"/>
+                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="kfn-5f-Afs"/>
+                                                    <menuItem title="Smaller" tag="4" keyEquivalent="-" id="bfO-ua-nvq"/>
+                                                    <menuItem isSeparatorItem="YES" id="ZgM-sg-Rq1"/>
+                                                    <menuItem title="Kern" id="Nbh-73-Z2J">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Kern" id="cIa-xC-lLQ">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="1Ff-qg-DOF">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Use None" id="xoE-Pn-19J">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Tighten" id="5sI-Wj-obB">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Loosen" id="hK0-is-XYd">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="Ligatures" id="QZr-BI-k9I">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Ligatures" id="Adg-Zd-ISf">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="s5W-Df-TXd">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Use None" id="H4y-XG-WRS">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Use All" id="RLo-Lf-VCQ">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="Baseline" id="4hf-gr-iKD">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Baseline" id="icj-Ns-mKg">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="or6-cc-fin">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Superscript" id="7df-t6-wDi">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Subscript" id="bBf-f6-HrD">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Raise" id="e6q-jN-AtV">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="Lower" id="0v5-sv-z4w">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="lXQ-QE-hCp"/>
+                                                    <menuItem title="Show Colors" keyEquivalent="C" id="T6v-zd-obp"/>
+                                                    <menuItem isSeparatorItem="YES" id="Z4F-Bp-Hmy"/>
+                                                    <menuItem title="Copy Style" keyEquivalent="c" id="MRE-V4-8IQ">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                    </menuItem>
+                                                    <menuItem title="Paste Style" keyEquivalent="v" id="9Dk-pF-u4A">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Text" id="yVH-HW-mVa">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Text" id="Tii-RL-Tmi">
+                                                <items>
+                                                    <menuItem title="Align Left" keyEquivalent="{" id="rw5-xj-6ts"/>
+                                                    <menuItem title="Center" keyEquivalent="|" id="mRD-Qb-usH"/>
+                                                    <menuItem title="Justify" id="KjX-hg-XpJ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Align Right" keyEquivalent="}" id="e1l-Ga-lk9"/>
+                                                    <menuItem isSeparatorItem="YES" id="5um-Qz-NuX"/>
+                                                    <menuItem title="Writing Direction" id="Jer-O1-S3J">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Writing Direction" id="DKO-i7-SPC">
+                                                            <items>
+                                                                <menuItem title="Paragraph" enabled="NO" id="giG-CW-YcD">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="wdM-7l-7KL">
+                                                                    <string key="title">	Default</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="4jp-D7-mDF">
+                                                                    <string key="title">	Left to Right</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="hMf-CY-Vd9">
+                                                                    <string key="title">	Right to Left</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem isSeparatorItem="YES" id="T2G-1m-dIf"/>
+                                                                <menuItem title="Selection" enabled="NO" id="59e-pw-dc0">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="gJj-k5-MFb">
+                                                                    <string key="title">	Default</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="cAm-4G-KJo">
+                                                                    <string key="title">	Left to Right</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="sCR-eY-vw6">
+                                                                    <string key="title">	Right to Left</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="qzc-DH-CQg"/>
+                                                    <menuItem title="Show Ruler" id="ATR-Hq-wgL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Copy Ruler" keyEquivalent="c" id="yow-hc-31a">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                                    </menuItem>
+                                                    <menuItem title="Paste Ruler" keyEquivalent="v" id="lHl-m6-pP2">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="View" id="bSS-YI-3jF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="View" id="jdh-B5-gHi">
+                                    <items>
+                                        <menuItem title="Show Toolbar" keyEquivalent="t" id="Byu-eq-kKQ">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Customize Toolbar…" id="M3k-LC-wqn">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wzL-Hn-nEi"/>
+                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="fHy-kj-stj">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="zLP-Z8-Wbj">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Window" id="h99-0I-8YQ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="iU0-v3-QKU">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="WFB-bx-dKP"/>
+                                        <menuItem title="Zoom" id="WMO-zf-c3X">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Mty-P7-wQi"/>
+                                        <menuItem title="Bring All to Front" id="FwI-nb-6wK">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="rxa-4M-YIB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="lMr-LT-70c">
+                                    <items>
+                                        <menuItem title="123 Help" keyEquivalent="?" id="Val-N9-YZ7"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                        <connections>
+                            <outlet property="delegate" destination="mzn-Ne-X2L" id="Z58-l9-LK2"/>
+                        </connections>
+                    </menu>
+                </application>
+                <customObject id="d8d-AO-cqe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="mzn-Ne-X2L" customClass="AppDelegate" customModule="Scripty" customModuleProvider="target">
+                    <connections>
+                        <outlet property="statusMenu" destination="nNy-Xm-6gA" id="7E7-rH-kSV"/>
+                    </connections>
+                </customObject>
+                <customObject id="YPa-Ul-bxY" customClass="NSFontManager"/>
+            </objects>
+            <point key="canvasLocation" x="313" y="-271"/>
         </scene>
     </scenes>
 </document>

@@ -11,10 +11,11 @@ import Foundation
 final class Shell {
 
     @discardableResult
-    static func run(_ args: [String]) -> Int32 {
+    static func run(_ arguments: [String]) -> Int32 {
         let task = Process()
         task.launchPath = "/usr/bin/env"
-        task.arguments = args
+        task.arguments = arguments
+        task.standardOutput = pipe
         task.launch()
         task.waitUntilExit()
         return task.terminationStatus
