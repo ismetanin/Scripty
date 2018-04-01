@@ -21,9 +21,7 @@ struct Command {
     init(name: String, script: String) {
         self.name = name
         let normalizedString = script.replacingOccurrences(of: "\n", with: " ")
-        debugPrint(normalizedString)
         let args = normalizedString.split(separator: " ").map { String($0) }
-        debugPrint(args)
         self.args = args
     }
 

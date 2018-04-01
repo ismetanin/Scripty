@@ -102,7 +102,6 @@ extension AddScriptViewController: NSTextViewDelegate {
         }
         let newText = text.replacingCharacters(in: affectedCharRange, with: replacementString)
         scriptText = newText
-        debugPrint(scriptText)
         return true
     }
 
