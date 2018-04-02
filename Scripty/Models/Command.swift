@@ -20,7 +20,9 @@ struct Command {
     ///   - script: Arguments in string representation.
     init(name: String, script: String) {
         self.name = name
-        let normalizedString = script.replacingOccurrences(of: "\n", with: " ")
+        let normalizedString = script
+            .replacingOccurrences(of: "\n", with: " ")
+            .replacingOccurrences(of: "~", with: NSHomeDirectory())
         let args = normalizedString.split(separator: " ").map { String($0) }
         self.args = args
     }

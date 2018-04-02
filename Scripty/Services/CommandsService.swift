@@ -14,7 +14,7 @@ final class CommandsService {
 
     private var commands: [Command] = [Command(name: "Open Safari", args: ["open", "-a", "safari"]),
                                        Command(name: "Open Telegram", args: ["open", "-a", "telegram"]),
-                                       Command(name: "Delete derrived data", args: ["-c", "rm", "-rf", "~/.Trash/*"])
+                                       Command(name: "Delete derrived data", args: ["rm", "-rf", NSHomeDirectory() + "/.Trash"])
                                        ]
 
     // MARK: - Internal methods

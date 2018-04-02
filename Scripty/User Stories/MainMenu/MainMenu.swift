@@ -30,7 +30,8 @@ final class MainMenu: NSMenu {
         dataDisplayManager = MainMenuDataDisplayManager(menu: self)
         dataDisplayManager?.configure(with: commands)
         dataDisplayManager?.addEvent += {
-            let windowController = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init(rawValue: "AddScriptViewController")) as? NSWindowController
+            let windowController = NSStoryboard(name: String(describing: AddScriptViewController.self), bundle: nil)
+                .instantiateController(withIdentifier: String(describing: AddScriptViewController.self)) as? NSWindowController
             windowController?.showWindow(self)
         }
         dataDisplayManager?.quitEvent += {

@@ -12,12 +12,13 @@ final class Shell {
 
     @discardableResult
     static func run(_ arguments: [String]) -> Int32 {
+        debugPrint("Task \(arguments) is running")
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = arguments
-        task.standardOutput = pipe
         task.launch()
         task.waitUntilExit()
+        debugPrint("Result status: \(task.terminationStatus)")
         return task.terminationStatus
     }
 
