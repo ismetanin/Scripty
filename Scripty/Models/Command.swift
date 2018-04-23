@@ -10,8 +10,18 @@ import Foundation
 
 struct Command {
 
+    // MARK: - Constants
+
     let name: String
     let args: [String]
+
+    // MARK: - Properties
+
+    var argsStringRepresentation: String {
+        return args.joined(separator: "\n")
+    }
+
+    // MARK: - Initialization and deinitialization
 
     /// Initializes object with name and arguments in string representation.
     ///

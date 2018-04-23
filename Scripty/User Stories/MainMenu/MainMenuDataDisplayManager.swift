@@ -30,6 +30,8 @@ final class MainMenuDataDisplayManager {
     // MARK: - Internal methods
 
     func configure(with commands: [Command]) {
+        menu.removeAllItems()
+
         self.commands = commands
 
         // add command item

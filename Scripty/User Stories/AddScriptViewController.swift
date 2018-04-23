@@ -54,7 +54,6 @@ final class AddScriptViewController: NSViewController {
         let script = Command(name: scriptName, script: scriptText)
         let service = CommandsService()
         service.add(command: script)
-        Shell.run(script.args)
         self.view.window?.close()
     }
 

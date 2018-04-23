@@ -10,20 +10,16 @@ import Foundation
 
 final class CommandsService {
 
-    // MARK: - Properties
-
-    private var commands: [Command] = [Command(name: "Open Safari", args: ["open", "-a", "safari"]),
-                                       Command(name: "Open Telegram", args: ["open", "-a", "telegram"]),
-                                       Command(name: "Delete derrived data", args: ["rm", "-rf", NSHomeDirectory() + "/.Trash"])
-                                       ]
-
     // MARK: - Internal methods
 
     func add(command: Command) {
-        commands.append(command)
+        FileSystemManager.shared.write(filename: command.name, content: command.argsStringRepresentation)
+        Notifications.shared.commandsListChanged.invoke(with: ())
     }
 
     func getAll() -> [Command] {
+        let files = FileSystemManager.shared.readAll()
+        let commands = files.map { Command(name: $0.filename, script: $0.content) }
         return commands
     }
 

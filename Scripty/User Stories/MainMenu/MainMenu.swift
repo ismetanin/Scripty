@@ -23,6 +23,15 @@ final class MainMenu: NSMenu {
     // MARK: - Internal methods
 
     func setupInitialState() {
+        Notifications.shared.commandsListChanged.addListner { [weak self] in
+            self?.reloadData()
+        }
+        reloadData()
+    }
+
+    // MARK: - Private methods
+
+    private func reloadData() {
         // retrieve commands
         let commandsService = CommandsService()
         let commands = commandsService.getAll()
