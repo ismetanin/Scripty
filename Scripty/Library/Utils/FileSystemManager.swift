@@ -42,13 +42,64 @@ final class FileSystemManager {
 
         let fileURL = dir.appendingPathComponent(filename)
 
-        //reading
         do {
             let content = try String(contentsOf: fileURL, encoding: .utf8)
             return content
         }
         catch {
             return nil
+        }
+    }
+
+    func readAll() -> [(filename: String, content: String)] {
+        do {
+            let dir = try FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+            let contents = try FileManager.default.contentsOfDirectory(atPath: "\(dir.path)")
+
+            var result: [(filename: String, content: String)] = []
+            for filename in contents {
+                guard let content = read(filename: filename) else {
+                    continue
+                }
+                result.append((filename: filename, content: content))
+            }
+
+            return result
+        }
+        catch {
+            return []
+        }
+    }
+
+    @discardableResult
+    func delete(filename: String) -> Bool {
+        do {
+            let dir = try FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+            let fileURL = dir.appendingPathComponent(filename)
+
+            try FileManager.default.removeItem(at: fileURL)
+            return true
+        }
+        catch {
+            return false
+        }
+    }
+
+    @discardableResult
+    func deleteAll() -> Bool {
+        do {
+            let dir = try FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+            let contents = try FileManager.default.contentsOfDirectory(atPath: "\(dir.path)")
+            for filename in contents {
+                delete(filename: filename)
+            }
+            return true
+        }
+        catch {
+            return false
         }
     }
 
