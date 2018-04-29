@@ -16,8 +16,7 @@ security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain
 # Add certificates to keychain and allow codesign to access them
 security import ./scripts/certs/apple.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 security import ./scripts/certs/dev.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-security import ./scripts/certs/dev.p12 -k ~/Library/Keychains/ios-build.keychain -P $ENCRYPTION_SECRET -T /usr/bin/codesign
-
+security import ./scripts/certs/dev.p12 -k ~/Library/Keychains/ios-build.keychain -P "$ENCRYPTION_SECRET" -T /usr/bin/codesign
 
 security set-key-partition-list -S apple-tool:,apple:,codesign: -s \
   -k travis ~/Library/Keychains/ios-build.keychain
