@@ -10,6 +10,7 @@ before_install:
 before_script:
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dev.cer.enc -d -a -out scripts/certs/dev.cer
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dev.p12.enc -d -a -out scripts/certs/dev.p12
+- chmod a+x scripts/add_key.sh
 - ./scripts/add_key.sh
 
 script:
