@@ -38,17 +38,25 @@ final class MainMenu: NSMenu {
         // configure ddm
         dataDisplayManager = MainMenuDataDisplayManager(menu: self)
         dataDisplayManager?.configure(with: commands)
-        dataDisplayManager?.addEvent += {
-            let windowController = NSStoryboard(name: String(describing: AddScriptViewController.self), bundle: nil)
-                .instantiateController(withIdentifier: String(describing: AddScriptViewController.self)) as? NSWindowController
-            windowController?.showWindow(self)
-        }
+        dataDisplayManager?.addEvent += self.showAddScript
+
         dataDisplayManager?.quitEvent += {
             NSApplication.shared.terminate(self)
         }
         dataDisplayManager?.commandSelectionEvent += { command in
             Shell.run(command.args)
         }
+    }
+
+    private func showAddScript() {
+        let windowController = NSStoryboard(
+            name: String(describing: AddScriptViewController.self), bundle: nil
+        ).instantiateController(
+            withIdentifier: String(describing: AddScriptViewController.self)
+        ) as? NSWindowController
+        windowController?.showWindow(self)
+        // move to front
+        NSApp.activate(ignoringOtherApps: true)
     }
 
 }

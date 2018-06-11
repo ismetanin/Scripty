@@ -29,8 +29,7 @@ final class FileSystemManager {
 
             try content.write(to: fileURL, atomically: false, encoding: .utf8)
             return true
-        }
-        catch {
+        } catch {
             return false
         }
     }
@@ -45,8 +44,7 @@ final class FileSystemManager {
         do {
             let content = try String(contentsOf: fileURL, encoding: .utf8)
             return content
-        }
-        catch {
+        } catch {
             return nil
         }
     }
@@ -66,8 +64,7 @@ final class FileSystemManager {
             }
 
             return result
-        }
-        catch {
+        } catch {
             return []
         }
     }
@@ -81,8 +78,7 @@ final class FileSystemManager {
 
             try FileManager.default.removeItem(at: fileURL)
             return true
-        }
-        catch {
+        } catch {
             return false
         }
     }
@@ -97,8 +93,7 @@ final class FileSystemManager {
                 delete(filename: filename)
             }
             return true
-        }
-        catch {
+        } catch {
             return false
         }
     }
