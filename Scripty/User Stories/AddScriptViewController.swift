@@ -53,7 +53,11 @@ final class AddScriptViewController: NSViewController {
     private func saveScriptAndCloseWindow() {
         let script = Command(name: scriptName, script: scriptText)
         let service = CommandsService()
-        service.add(command: script)
+        service.save(command: script)
+        scriptNameTextField.stringValue = ""
+        scriptTextView.string = ""
+        scriptName = ""
+        scriptText = ""
         self.view.window?.close()
     }
 
@@ -101,6 +105,20 @@ extension AddScriptViewController: NSTextViewDelegate {
         }
         let newText = text.replacingCharacters(in: affectedCharRange, with: replacementString)
         scriptText = newText
+        return true
+    }
+
+    func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        switch commandSelector {
+        case #selector(insertNewline(_:)):
+            textView.insertNewlineIgnoringFieldEditor(nil)
+            break
+        case #selector(insertTab(_:)):
+            textView.insertTabIgnoringFieldEditor(nil)
+            break
+        default:
+            return false
+        }
         return true
     }
 

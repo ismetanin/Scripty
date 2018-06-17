@@ -29,11 +29,11 @@ final class CommandsServiceTests: XCTestCase {
 
     // MARK: - Main tests
 
-    func testThatServiceAddsCommandsCorrectly() {
+    func testThatServiceSavesCommandsCorrectly() {
         // given
         let command = Command(name: "MyCommand", args: ["arg"])
         // when
-        service?.add(command: command)
+        service?.save(command: command)
         // then
         XCTAssert(service?.getAll().contains(where: { $0.name == command.name && $0.args == command.args }) ?? false)
     }

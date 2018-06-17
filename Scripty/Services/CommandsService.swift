@@ -12,7 +12,7 @@ final class CommandsService {
 
     // MARK: - Internal methods
 
-    func add(command: Command) {
+    func save(command: Command) {
         FileSystemManager.shared.write(filename: command.name, content: command.argsStringRepresentation)
         Notifications.shared.commandsListChanged.invoke(with: ())
     }

@@ -13,6 +13,7 @@ final class MainMenu: NSMenu {
     // MARK: - Properties
 
     private var dataDisplayManager: MainMenuDataDisplayManager?
+    private var windowController: NSWindowController?
 
     // MARK: - NSMenu
 
@@ -49,12 +50,19 @@ final class MainMenu: NSMenu {
     }
 
     private func showAddScript() {
-        let windowController = NSStoryboard(
-            name: String(describing: AddScriptViewController.self), bundle: nil
-        ).instantiateController(
-            withIdentifier: String(describing: AddScriptViewController.self)
-        ) as? NSWindowController
-        windowController?.showWindow(self)
+        if let windowController = self.windowController {
+            windowController.showWindow(self)
+            windowController.window?.center()
+        } else {
+            let windowController = NSStoryboard(
+                name: String(describing: AddScriptViewController.self), bundle: nil
+                ).instantiateController(
+                    withIdentifier: String(describing: AddScriptViewController.self)
+                ) as? NSWindowController
+            windowController?.showWindow(self)
+            windowController?.window?.center()
+            self.windowController = windowController
+        }
         // move to front
         NSApp.activate(ignoringOtherApps: true)
     }
