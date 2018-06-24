@@ -112,12 +112,14 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
     // MARK: - Mocks
 
     private final class MockMenu: NSMenu {
+
         var addItemWasCalled: Bool = false
 
         override func addItem(_ newItem: NSMenuItem) {
             super.addItem(newItem)
             addItemWasCalled = true
         }
+
     }
 
 }
