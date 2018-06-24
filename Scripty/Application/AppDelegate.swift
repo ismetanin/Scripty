@@ -22,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - NSApplicationDelegate
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        statusItem.title = L10n.Statusitem.title
         statusItem.image = #imageLiteral(resourceName: "imgStatusItemIcon")
         statusItem.highlightMode = true
         statusItem.menu = statusMenu

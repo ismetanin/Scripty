@@ -50,19 +50,16 @@ final class MainMenu: NSMenu {
     }
 
     private func showAddScript() {
-        if let windowController = self.windowController {
-            windowController.showWindow(self)
-            windowController.window?.center()
-        } else {
+        if self.windowController == nil {
             let windowController = NSStoryboard(
                 name: String(describing: AddScriptViewController.self), bundle: nil
                 ).instantiateController(
                     withIdentifier: String(describing: AddScriptViewController.self)
                 ) as? NSWindowController
-            windowController?.showWindow(self)
-            windowController?.window?.center()
             self.windowController = windowController
         }
+        windowController?.showWindow(self)
+        windowController?.window?.center()
         // move to front
         NSApp.activate(ignoringOtherApps: true)
     }
