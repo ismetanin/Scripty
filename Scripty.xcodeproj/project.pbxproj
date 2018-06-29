@@ -24,6 +24,7 @@
 		8B1BB8A020712E9F002164D7 /* AddScriptViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1BB89F20712E9F002164D7 /* AddScriptViewController.storyboard */; };
 		8B1BB8A220712F4A002164D7 /* NSStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB8A120712F4A002164D7 /* NSStoryboard.swift */; };
 		8B2FBBA220642C6D00B9C941 /* AddScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */; };
+		8BB8D4D520E6BC2800E81986 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8D4D420E6BC2800E81986 /* Notification.Name.swift */; };
 		8BEF6DFB208E826200893A12 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6DFA208E826200893A12 /* Notifications.swift */; };
 		8BF5051A2083EB5100DBFB18 /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF505192083EB5100DBFB18 /* FileSystemManager.swift */; };
 		8BF5051C2083ED2E00DBFB18 /* FileSystemManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF5051B2083ED2E00DBFB18 /* FileSystemManagerTests.swift */; };
@@ -66,6 +67,7 @@
 		8B1BB89F20712E9F002164D7 /* AddScriptViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddScriptViewController.storyboard; sourceTree = "<group>"; };
 		8B1BB8A120712F4A002164D7 /* NSStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStoryboard.swift; sourceTree = "<group>"; };
 		8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScriptViewController.swift; sourceTree = "<group>"; };
+		8BB8D4D420E6BC2800E81986 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		8BEF6DFA208E826200893A12 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8BF505192083EB5100DBFB18 /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
 		8BF5051B2083ED2E00DBFB18 /* FileSystemManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManagerTests.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				8B1BB8A120712F4A002164D7 /* NSStoryboard.swift */,
+				8BB8D4D420E6BC2800E81986 /* Notification.Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				8B2FBBA220642C6D00B9C941 /* AddScriptViewController.swift in Sources */,
 				8B0DF037205ECC4000C7F823 /* Shell.swift in Sources */,
 				8B0DF035205ECA7600C7F823 /* MainMenu.swift in Sources */,
+				8BB8D4D520E6BC2800E81986 /* Notification.Name.swift in Sources */,
 				8B1BB8A220712F4A002164D7 /* NSStoryboard.swift in Sources */,
 				8B0DF047205EDB6F00C7F823 /* Localizable.swift in Sources */,
 				8B0DF015205EC71B00C7F823 /* AppDelegate.swift in Sources */,

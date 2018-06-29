@@ -26,6 +26,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.highlightMode = true
         statusItem.menu = statusMenu
         statusMenu.setupInitialState()
+
+        let mainAppIdentifier = "tech.buildy.Scripty"
+        let runningApps = NSWorkspace.shared.runningApplications
+        let isRunning = !runningApps.filter { $0.bundleIdentifier == mainAppIdentifier }.isEmpty
+
+        if !isRunning {
+            DistributedNotificationCenter.default().addObserver(
+                self,
+                selector: #selector(self.terminate),
+                name: .killLauncher,
+                object: mainAppIdentifier
+            )
+
+            let path = Bundle.main.bundlePath as NSString
+            var components = path.pathComponents
+            components.removeLast()
+            components.removeLast()
+            components.removeLast()
+            components.append("MacOS")
+            components.append("Scripty")
+
+            let newPath = NSString.path(withComponents: components)
+
+            NSWorkspace.shared.launchApplication(newPath)
+        } else {
+            self.terminate()
+        }
+    }
+
+    // MARK: - Private methods
+
+    @objc
+    private func terminate() {
+        NSApp.terminate(nil)
     }
 
 }
