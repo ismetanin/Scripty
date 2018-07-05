@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.highlightMode = true
         statusItem.menu = statusMenu
         statusMenu.setupInitialState()
+        NSApplication.shared.shouldLaunchOnStartup = true
     }
 
 }
-
