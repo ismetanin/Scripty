@@ -14,12 +14,7 @@ struct Command {
 
     let name: String
     let args: [String]
-
-    // MARK: - Properties
-
-    var argsStringRepresentation: String {
-        return args.joined(separator: "\n")
-    }
+    let argsStringRepresentation: String
 
     // MARK: - Initialization and deinitialization
 
@@ -30,6 +25,7 @@ struct Command {
     ///   - script: Arguments in string representation.
     init(name: String, script: String) {
         self.name = name
+        self.argsStringRepresentation = script
         let normalizedString = script
             .replacingOccurrences(of: "\n", with: " ")
             .replacingOccurrences(of: "~", with: NSHomeDirectory())
@@ -40,6 +36,7 @@ struct Command {
     init(name: String, args: [String]) {
         self.name = name
         self.args = args
+        self.argsStringRepresentation = args.joined(separator: "\n")
     }
 
 }

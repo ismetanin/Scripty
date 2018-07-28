@@ -12,4 +12,6 @@
 "AddScript.ScriptNameTitle" = "Script name";
 "AddScript.ScriptContentTitle" = "Script";
 "AddScript.DoneButtonTitle" = "Done";
+"Error.ShellRun.title" = "Error";
+"Error.ShellRun.description" = "Something went wrong. Please check script in Preferences.";
 
