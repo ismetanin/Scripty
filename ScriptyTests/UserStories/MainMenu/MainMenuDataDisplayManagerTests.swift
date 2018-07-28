@@ -36,60 +36,60 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
 
     func testThatDataDisplayManagerAddsItems() {
         // given
-        let commands: [Command] = [Command(name: "", args: [])]
+        let scripts: [Script] = [Script(name: "", content: "")]
         // when
-        ddm?.configure(with: commands)
+        ddm?.configure(with: scripts)
         // then
         XCTAssert(menu?.addItemWasCalled == true)
     }
 
     func testThatDataDisplayManagerAddsCorrectNumberOfItems() {
         // given
-        let commands: [Command] = [Command(name: "", args: []), Command(name: "", args: [])]
+        let scripts: [Script] = [Script(name: "", content: ""), Script(name: "", content: "")]
         // when
-        ddm?.configure(with: commands)
+        ddm?.configure(with: scripts)
         // then
         XCTAssert(menu?.items.count == 6)
     }
 
     func testThatDataDisplayManagerFillsMenuInRightOrder() {
         // given
-        let commands: [Command] = [Command(name: "1", args: []), Command(name: "2", args: [])]
+        let scripts: [Script] = [Script(name: "1", content: ""), Script(name: "2", content: "")]
         // when
-        ddm?.configure(with: commands)
+        ddm?.configure(with: scripts)
         // then
         XCTAssert(menu?.items[0].title == L10n.Mainmenu.addItemTitle)
         XCTAssert(menu?.items[1].isSeparatorItem == true)
-        XCTAssert(menu?.items[2].title == commands.first?.name)
-        XCTAssert(menu?.items[3].title == commands.last?.name)
+        XCTAssert(menu?.items[2].title == scripts.first?.name)
+        XCTAssert(menu?.items[3].title == scripts.last?.name)
         XCTAssert(menu?.items[4].isSeparatorItem == true)
         XCTAssert(menu?.items[5].title == L10n.Mainmenu.quitItemTitle)
     }
 
     func testThatDataDisplayManagerInvokesCommandSelectionEvent() {
         // given
-        let commands: [Command] = [Command(name: "1", args: []), Command(name: "2", args: [])]
-        var commandSelectionEventInvoked: Bool = false
-        ddm?.commandSelectionEvent += { command in
-            commandSelectionEventInvoked = true
-            XCTAssert(command.name == commands.first?.name)
+        let scripts: [Script] = [Script(name: "1", content: ""), Script(name: "2", content: "")]
+        var scriptSelectionEventWasInvoked: Bool = false
+        ddm?.scriptSelectionEvent += { command in
+            scriptSelectionEventWasInvoked = true
+            XCTAssert(command.name == scripts.first?.name)
         }
         // when
-        ddm?.configure(with: commands)
+        ddm?.configure(with: scripts)
         menu?.performActionForItem(at: 2)
         // then
-        XCTAssert(commandSelectionEventInvoked == true)
+        XCTAssert(scriptSelectionEventWasInvoked == true)
     }
 
     func testThatDataDisplayManagerInvokesAddScriptEvent() {
         // given
-        let commands: [Command] = [Command(name: "", args: []), Command(name: "", args: [])]
+        let scripts: [Script] = [Script(name: "", content: ""), Script(name: "", content: "")]
         var addEventInvoked: Bool = false
         ddm?.addEvent += {
             addEventInvoked = true
         }
         // when
-        ddm?.configure(with: commands)
+        ddm?.configure(with: scripts)
         menu?.performActionForItem(at: 0)
         // then
         XCTAssert(addEventInvoked == true)
@@ -97,13 +97,13 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
 
     func testThatDataDisplayManagerInvokesQuitEvent() {
         // given
-        let commands: [Command] = [Command(name: "", args: []), Command(name: "", args: [])]
+        let scripts: [Script] = [Script(name: "", content: ""), Script(name: "", content: "")]
         var quitEventInvoked: Bool = false
         ddm?.quitEvent += {
             quitEventInvoked = true
         }
         // when
-        ddm?.configure(with: commands)
+        ddm?.configure(with: scripts)
         menu?.performActionForItem(at: (menu?.items.count ?? 0) - 1 )
         // then
         XCTAssert(quitEventInvoked == true)

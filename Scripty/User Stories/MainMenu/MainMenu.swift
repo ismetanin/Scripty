@@ -24,7 +24,7 @@ final class MainMenu: NSMenu {
     // MARK: - Internal methods
 
     func setupInitialState() {
-        Notifications.shared.commandsListChanged.addListner { [weak self] in
+        Notifications.shared.scriptsListChanged.addListner { [weak self] in
             self?.reloadData()
         }
         reloadData()
@@ -34,18 +34,18 @@ final class MainMenu: NSMenu {
 
     private func reloadData() {
         // retrieve commands
-        let commandsService = CommandsService()
-        let commands = commandsService.getAll()
+        let scriptsService = ScriptsService()
+        let scripts = scriptsService.getAll()
         // configure ddm
         dataDisplayManager = MainMenuDataDisplayManager(menu: self)
-        dataDisplayManager?.configure(with: commands)
+        dataDisplayManager?.configure(with: scripts)
         dataDisplayManager?.addEvent += self.showAddScript
 
         dataDisplayManager?.quitEvent += { [weak self] in
             self?.quit()
         }
-        dataDisplayManager?.commandSelectionEvent += { [weak self] command in
-            let runResult = Shell.run(command.args)
+        dataDisplayManager?.scriptSelectionEvent += { [weak self] script in
+            let runResult = Shell.run(script.args)
             self?.handleShellRun(result: runResult)
         }
     }

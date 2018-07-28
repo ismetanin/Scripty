@@ -12,6 +12,6 @@ struct Notifications {
 
     public static var shared = Notifications()
 
-    var commandsListChanged: BaseEvent<Void> = BaseEvent<Void>()
+    var scriptsListChanged: BaseEvent<Void> = BaseEvent<Void>()
 
 }
