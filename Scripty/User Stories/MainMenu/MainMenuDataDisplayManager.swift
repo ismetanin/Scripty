@@ -16,9 +16,9 @@ final class MainMenuDataDisplayManager {
 
     // MARK: - Properties
 
-    private var commands: [Command] = []
+    private var scripts: [Script] = []
     var addEvent: BaseEvent<Void> = BaseEvent<Void>()
-    var commandSelectionEvent: BaseEvent<Command> = BaseEvent<Command>()
+    var scriptSelectionEvent: BaseEvent<Script> = BaseEvent<Script>()
     var quitEvent: BaseEvent<Void> = BaseEvent<Void>()
 
     // MARK: - Initialization and deinitialization
@@ -29,10 +29,10 @@ final class MainMenuDataDisplayManager {
 
     // MARK: - Internal methods
 
-    func configure(with commands: [Command]) {
+    func configure(with scripts: [Script]) {
         menu.removeAllItems()
 
-        self.commands = commands
+        self.scripts = scripts
 
         // add command item
         let addItem = NSMenuItem(title: L10n.Mainmenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: "")
@@ -43,8 +43,8 @@ final class MainMenuDataDisplayManager {
         menu.addItem(NSMenuItem.separator())
 
         // commands
-        for (index, command) in commands.enumerated() {
-            let item = NSMenuItem(title: command.name, action: #selector(shellAction(for:)), keyEquivalent: "")
+        for (index, script) in scripts.enumerated() {
+            let item = NSMenuItem(title: script.name, action: #selector(shellAction(for:)), keyEquivalent: "")
             item.target = self
             item.tag = index
             menu.addItem(item)
@@ -73,8 +73,8 @@ private extension MainMenuDataDisplayManager {
 
     @objc
     private func shellAction(for item: NSMenuItem) {
-        let command = commands[item.tag]
-        commandSelectionEvent.invoke(with: command)
+        let script = scripts[item.tag]
+        scriptSelectionEvent.invoke(with: script)
     }
 
     @objc

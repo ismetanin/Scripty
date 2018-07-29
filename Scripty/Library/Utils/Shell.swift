@@ -10,8 +10,13 @@ import Foundation
 
 final class Shell {
 
+    enum RunResult: Int32 {
+        case success = 0
+        case error = 1
+    }
+
     @discardableResult
-    static func run(_ arguments: [String]) -> Int32 {
+    static func run(_ arguments: [String]) -> RunResult {
         debugPrint("Task \(arguments) is running")
         let task = Process()
         task.launchPath = "/usr/bin/env"
@@ -19,7 +24,7 @@ final class Shell {
         task.launch()
         task.waitUntilExit()
         debugPrint("Result status: \(task.terminationStatus)")
-        return task.terminationStatus
+        return RunResult(rawValue: task.terminationStatus) ?? .error
     }
 
 }

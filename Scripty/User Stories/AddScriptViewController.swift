@@ -51,9 +51,9 @@ final class AddScriptViewController: NSViewController {
     // MARK: - Private methods
 
     private func saveScriptAndCloseWindow() {
-        let script = Command(name: scriptName, script: scriptText)
-        let service = CommandsService()
-        service.save(command: script)
+        let script = Script(name: scriptName, content: scriptText)
+        let service = ScriptsService()
+        service.save(script: script)
         scriptNameTextField.stringValue = ""
         scriptTextView.string = ""
         scriptName = ""

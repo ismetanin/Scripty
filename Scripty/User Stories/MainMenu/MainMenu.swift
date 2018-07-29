@@ -24,7 +24,7 @@ final class MainMenu: NSMenu {
     // MARK: - Internal methods
 
     func setupInitialState() {
-        Notifications.shared.commandsListChanged.addListner { [weak self] in
+        Notifications.shared.scriptsListChanged.addListner { [weak self] in
             self?.reloadData()
         }
         reloadData()
@@ -34,34 +34,56 @@ final class MainMenu: NSMenu {
 
     private func reloadData() {
         // retrieve commands
-        let commandsService = CommandsService()
-        let commands = commandsService.getAll()
+        let scriptsService = ScriptsService()
+        let scripts = scriptsService.getAll()
         // configure ddm
         dataDisplayManager = MainMenuDataDisplayManager(menu: self)
-        dataDisplayManager?.configure(with: commands)
+        dataDisplayManager?.configure(with: scripts)
         dataDisplayManager?.addEvent += self.showAddScript
 
-        dataDisplayManager?.quitEvent += {
-            NSApplication.shared.terminate(self)
+        dataDisplayManager?.quitEvent += { [weak self] in
+            self?.quit()
         }
-        dataDisplayManager?.commandSelectionEvent += { command in
-            Shell.run(command.args)
+        dataDisplayManager?.scriptSelectionEvent += { [weak self] script in
+            let runResult = Shell.run(script.args)
+            self?.handleShellRun(result: runResult)
         }
+    }
+
+    private func handleShellRun(result: Shell.RunResult) {
+        switch result {
+        case .success:
+            break
+        case .error:
+            showShellRunError()
+        }
+    }
+
+    private func showShellRunError() {
+        let alert = NSAlert()
+        alert.messageText = L10n.Error.Shellrun.title
+        alert.informativeText = L10n.Error.Shellrun.description
+        alert.alertStyle = .warning
+        alert.runModal()
     }
 
     private func showAddScript() {
         if self.windowController == nil {
             let windowController = NSStoryboard(
                 name: String(describing: AddScriptViewController.self), bundle: nil
-                ).instantiateController(
-                    withIdentifier: String(describing: AddScriptViewController.self)
-                ) as? NSWindowController
+            ).instantiateController(
+                withIdentifier: String(describing: AddScriptViewController.self)
+            ) as? NSWindowController
             self.windowController = windowController
         }
         windowController?.showWindow(self)
         windowController?.window?.center()
         // move to front
         NSApp.activate(ignoringOtherApps: true)
+    }
+
+    private func quit() {
+        NSApplication.shared.terminate(self)
     }
 
 }

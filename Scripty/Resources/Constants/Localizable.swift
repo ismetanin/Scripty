@@ -17,6 +17,16 @@ enum L10n {
     static let scriptNameTitle = L10n.tr("Localizable", "AddScript.ScriptNameTitle")
   }
 
+  enum Error {
+
+    enum Shellrun {
+      /// Something went wrong. Please check script in Preferences.
+      static let description = L10n.tr("Localizable", "Error.ShellRun.description")
+      /// Error
+      static let title = L10n.tr("Localizable", "Error.ShellRun.title")
+    }
+  }
+
   enum Mainmenu {
     /// Add script...
     static let addItemTitle = L10n.tr("Localizable", "MainMenu.AddItemTitle")

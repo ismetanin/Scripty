@@ -13,13 +13,13 @@ final class CommandsServiceTests: XCTestCase {
 
     // MARK: - Properties
 
-    private var service: CommandsService?
+    private var service: ScriptsService?
 
     // MARK: - XCTestCase
 
     override func setUp() {
         super.setUp()
-        service = CommandsService()
+        service = ScriptsService()
     }
     
     override func tearDown() {
@@ -31,11 +31,11 @@ final class CommandsServiceTests: XCTestCase {
 
     func testThatServiceSavesCommandsCorrectly() {
         // given
-        let command = Command(name: "MyCommand", args: ["arg"])
+        let script = Script(name: "MyCommand", content: "arg")
         // when
-        service?.save(command: command)
+        service?.save(script: script)
         // then
-        XCTAssert(service?.getAll().contains(where: { $0.name == command.name && $0.args == command.args }) ?? false)
+        XCTAssert(service?.getAll().contains(where: { $0.name == script.name && $0.args == script.args }) ?? false)
     }
 
 }

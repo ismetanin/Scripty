@@ -14,10 +14,10 @@
 		8B0DF035205ECA7600C7F823 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF034205ECA7600C7F823 /* MainMenu.swift */; };
 		8B0DF037205ECC4000C7F823 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF036205ECC4000C7F823 /* Shell.swift */; };
 		8B0DF039205ED7F900C7F823 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DF038205ED7F900C7F823 /* Localizable.strings */; };
-		8B0DF042205ED90F00C7F823 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF041205ED90F00C7F823 /* Command.swift */; };
+		8B0DF042205ED90F00C7F823 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF041205ED90F00C7F823 /* Script.swift */; };
 		8B0DF047205EDB6F00C7F823 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF046205EDB6F00C7F823 /* Localizable.swift */; };
 		8B0DF04E205EDE3B00C7F823 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF04D205EDE3B00C7F823 /* Event.swift */; };
-		8B0DF050205EDF5600C7F823 /* CommandsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF04F205EDF5600C7F823 /* CommandsService.swift */; };
+		8B0DF050205EDF5600C7F823 /* ScriptsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF04F205EDF5600C7F823 /* ScriptsService.swift */; };
 		8B0DF053205EE15E00C7F823 /* MainMenuDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF052205EE15E00C7F823 /* MainMenuDataDisplayManager.swift */; };
 		8B0DF057205EE55500C7F823 /* MainMenuDataDisplayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF056205EE55500C7F823 /* MainMenuDataDisplayManagerTests.swift */; };
 		8B0DF05E205EF06800C7F823 /* CommandsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF05D205EF06800C7F823 /* CommandsServiceTests.swift */; };
@@ -58,10 +58,10 @@
 		8B0DF034205ECA7600C7F823 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		8B0DF036205ECC4000C7F823 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		8B0DF038205ED7F900C7F823 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		8B0DF041205ED90F00C7F823 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		8B0DF041205ED90F00C7F823 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		8B0DF046205EDB6F00C7F823 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		8B0DF04D205EDE3B00C7F823 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		8B0DF04F205EDF5600C7F823 /* CommandsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsService.swift; sourceTree = "<group>"; };
+		8B0DF04F205EDF5600C7F823 /* ScriptsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsService.swift; sourceTree = "<group>"; };
 		8B0DF052205EE15E00C7F823 /* MainMenuDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuDataDisplayManager.swift; sourceTree = "<group>"; };
 		8B0DF056205EE55500C7F823 /* MainMenuDataDisplayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuDataDisplayManagerTests.swift; sourceTree = "<group>"; };
 		8B0DF05D205EF06800C7F823 /* CommandsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsServiceTests.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 		8B0DF04A205EDB7F00C7F823 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8B0DF041205ED90F00C7F823 /* Command.swift */,
+				8B0DF041205ED90F00C7F823 /* Script.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 		8B0DF051205EDF6100C7F823 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8B0DF04F205EDF5600C7F823 /* CommandsService.swift */,
+				8B0DF04F205EDF5600C7F823 /* ScriptsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -537,7 +537,7 @@
 			files = (
 				8BEF6DFB208E826200893A12 /* Notifications.swift in Sources */,
 				8B0DF053205EE15E00C7F823 /* MainMenuDataDisplayManager.swift in Sources */,
-				8B0DF050205EDF5600C7F823 /* CommandsService.swift in Sources */,
+				8B0DF050205EDF5600C7F823 /* ScriptsService.swift in Sources */,
 				8B2FBBA220642C6D00B9C941 /* AddScriptViewController.swift in Sources */,
 				8B0DF037205ECC4000C7F823 /* Shell.swift in Sources */,
 				8B11E84120ED5AFD002344D7 /* NSApplication.swift in Sources */,
@@ -547,7 +547,7 @@
 				8B0DF047205EDB6F00C7F823 /* Localizable.swift in Sources */,
 				8B0DF015205EC71B00C7F823 /* AppDelegate.swift in Sources */,
 				8B0DF04E205EDE3B00C7F823 /* Event.swift in Sources */,
-				8B0DF042205ED90F00C7F823 /* Command.swift in Sources */,
+				8B0DF042205ED90F00C7F823 /* Script.swift in Sources */,
 				8BF5051A2083EB5100DBFB18 /* FileSystemManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
