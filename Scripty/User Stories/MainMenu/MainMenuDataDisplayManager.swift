@@ -16,10 +16,11 @@ final class MainMenuDataDisplayManager {
 
     // MARK: - Properties
 
-    private var scripts: [Script] = []
     var addEvent: BaseEvent<Void> = BaseEvent<Void>()
     var scriptSelectionEvent: BaseEvent<Script> = BaseEvent<Script>()
     var quitEvent: BaseEvent<Void> = BaseEvent<Void>()
+
+    private var scripts: [Script] = []
 
     // MARK: - Initialization and deinitialization
 
@@ -35,7 +36,7 @@ final class MainMenuDataDisplayManager {
         self.scripts = scripts
 
         // add command item
-        let addItem = NSMenuItem(title: L10n.Mainmenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: "")
+        let addItem = NSMenuItem(title: L10n.MainMenu.addItemTitle, action: #selector(add(_:)), keyEquivalent: "")
         addItem.target = self
         menu.addItem(addItem)
 
@@ -54,7 +55,7 @@ final class MainMenuDataDisplayManager {
         menu.addItem(NSMenuItem.separator())
 
         // quit item
-        let quitItem = NSMenuItem(title: L10n.Mainmenu.quitItemTitle, action: #selector(quitAction(_:)), keyEquivalent: "")
+        let quitItem = NSMenuItem(title: L10n.MainMenu.quitItemTitle, action: #selector(quitAction(_:)), keyEquivalent: "")
         quitItem.target = self
         menu.addItem(quitItem)
     }
@@ -64,7 +65,6 @@ final class MainMenuDataDisplayManager {
 // MARK: - Private methods
 
 private extension MainMenuDataDisplayManager {
-
 
     @objc
     private func add(_ sender: NSMenuItem) {

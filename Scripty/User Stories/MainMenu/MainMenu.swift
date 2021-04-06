@@ -17,7 +17,7 @@ final class MainMenu: NSMenu {
 
     // MARK: - NSMenu
 
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         return true
     }
 
@@ -52,17 +52,17 @@ final class MainMenu: NSMenu {
 
     private func handleShellRun(result: Shell.RunResult) {
         switch result {
-        case .success:
-            break
-        case .error:
-            showShellRunError()
+        case .success(let output):
+            showAlert(title: L10n.ShellRun.Success.title, message: output)
+        case .error(let output):
+            showAlert(title: L10n.ShellRun.Error.title, message: output.isEmpty ? L10n.ShellRun.Error.description : output)
         }
     }
 
-    private func showShellRunError() {
+    private func showAlert(title: String, message: String) {
         let alert = NSAlert()
-        alert.messageText = L10n.Error.Shellrun.title
-        alert.informativeText = L10n.Error.Shellrun.description
+        alert.messageText = title
+        alert.informativeText = message
         alert.alertStyle = .warning
         alert.runModal()
     }

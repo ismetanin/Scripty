@@ -58,12 +58,12 @@ final class MainMenuDataDisplayManagerTests: XCTestCase {
         // when
         ddm?.configure(with: scripts)
         // then
-        XCTAssert(menu?.items[0].title == L10n.Mainmenu.addItemTitle)
+        XCTAssert(menu?.items[0].title == L10n.MainMenu.addItemTitle)
         XCTAssert(menu?.items[1].isSeparatorItem == true)
         XCTAssert(menu?.items[2].title == scripts.first?.name)
         XCTAssert(menu?.items[3].title == scripts.last?.name)
         XCTAssert(menu?.items[4].isSeparatorItem == true)
-        XCTAssert(menu?.items[5].title == L10n.Mainmenu.quitItemTitle)
+        XCTAssert(menu?.items[5].title == L10n.MainMenu.quitItemTitle)
     }
 
     func testThatDataDisplayManagerInvokesCommandSelectionEvent() {

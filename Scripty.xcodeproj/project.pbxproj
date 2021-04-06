@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CFD6A68A50BC0F8F924070E /* Pods_Scripty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C9F63D47E741227B2DBF0C /* Pods_Scripty.framework */; };
+		026C696024FE9FD400FF2EF2 /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 026C695E24FE9FD400FF2EF2 /* Shell.cpp */; };
 		8B0DF015205EC71B00C7F823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF014205EC71B00C7F823 /* AppDelegate.swift */; };
 		8B0DF019205EC71B00C7F823 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DF018205EC71B00C7F823 /* Assets.xcassets */; };
 		8B0DF01C205EC71B00C7F823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DF01A205EC71B00C7F823 /* Main.storyboard */; };
@@ -23,13 +23,11 @@
 		8B0DF05E205EF06800C7F823 /* CommandsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DF05D205EF06800C7F823 /* CommandsServiceTests.swift */; };
 		8B11E84120ED5AFD002344D7 /* NSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11E84020ED5AFD002344D7 /* NSApplication.swift */; };
 		8B1BB8A020712E9F002164D7 /* AddScriptViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1BB89F20712E9F002164D7 /* AddScriptViewController.storyboard */; };
-		8B1BB8A220712F4A002164D7 /* NSStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB8A120712F4A002164D7 /* NSStoryboard.swift */; };
 		8B2FBBA220642C6D00B9C941 /* AddScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */; };
 		8BB8D4D520E6BC2800E81986 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8D4D420E6BC2800E81986 /* Notification.Name.swift */; };
 		8BEF6DFB208E826200893A12 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6DFA208E826200893A12 /* Notifications.swift */; };
 		8BF5051A2083EB5100DBFB18 /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF505192083EB5100DBFB18 /* FileSystemManager.swift */; };
 		8BF5051C2083ED2E00DBFB18 /* FileSystemManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF5051B2083ED2E00DBFB18 /* FileSystemManagerTests.swift */; };
-		F1F1247AFFBE4B42B305F002 /* Pods_Scripty_ScriptyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BBB377E760FEABC18F3C13 /* Pods_Scripty_ScriptyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		075584AEEB32F5D3901FFCC7 /* Pods-Scripty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scripty/Pods-Scripty.debug.xcconfig"; sourceTree = "<group>"; };
-		07C9F63D47E741227B2DBF0C /* Pods_Scripty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scripty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1927FC7C9469499B18746945 /* Pods-Scripty-ScriptyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripty-ScriptyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scripty-ScriptyTests/Pods-Scripty-ScriptyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		50BBB377E760FEABC18F3C13 /* Pods_Scripty_ScriptyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scripty_ScriptyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		026C695D24FE9FD400FF2EF2 /* Scripty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scripty-Bridging-Header.h"; sourceTree = "<group>"; };
+		026C695E24FE9FD400FF2EF2 /* Shell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shell.cpp; sourceTree = "<group>"; };
+		026C695F24FE9FD400FF2EF2 /* Shell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shell.h; sourceTree = "<group>"; };
 		8B0DF011205EC71B00C7F823 /* Scripty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scripty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0DF014205EC71B00C7F823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B0DF018205EC71B00C7F823 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,14 +64,11 @@
 		8B0DF05D205EF06800C7F823 /* CommandsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsServiceTests.swift; sourceTree = "<group>"; };
 		8B11E84020ED5AFD002344D7 /* NSApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication.swift; sourceTree = "<group>"; };
 		8B1BB89F20712E9F002164D7 /* AddScriptViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddScriptViewController.storyboard; sourceTree = "<group>"; };
-		8B1BB8A120712F4A002164D7 /* NSStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStoryboard.swift; sourceTree = "<group>"; };
 		8B2FBBA120642C6D00B9C941 /* AddScriptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScriptViewController.swift; sourceTree = "<group>"; };
 		8BB8D4D420E6BC2800E81986 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		8BEF6DFA208E826200893A12 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8BF505192083EB5100DBFB18 /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
 		8BF5051B2083ED2E00DBFB18 /* FileSystemManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManagerTests.swift; sourceTree = "<group>"; };
-		A68971C062A14CBD3BA5F595 /* Pods-Scripty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scripty/Pods-Scripty.release.xcconfig"; sourceTree = "<group>"; };
-		C2982CEAD9182B27C4C45517 /* Pods-Scripty-ScriptyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripty-ScriptyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scripty-ScriptyTests/Pods-Scripty-ScriptyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFD6A68A50BC0F8F924070E /* Pods_Scripty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1F1247AFFBE4B42B305F002 /* Pods_Scripty_ScriptyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +95,6 @@
 				8B0DF013205EC71B00C7F823 /* Scripty */,
 				8B0DF026205EC71C00C7F823 /* ScriptyTests */,
 				8B0DF012205EC71B00C7F823 /* Products */,
-				C0A3D6B2C024F853B2A8296B /* Pods */,
-				F68D0DD8B9919E6A268F56F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8B0DF014205EC71B00C7F823 /* AppDelegate.swift */,
+				026C695D24FE9FD400FF2EF2 /* Scripty-Bridging-Header.h */,
 				8B0DF01D205EC71B00C7F823 /* Info.plist */,
 				8B0DF01E205EC71B00C7F823 /* Scripty.entitlements */,
 			);
@@ -258,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				8B11E84020ED5AFD002344D7 /* NSApplication.swift */,
-				8B1BB8A120712F4A002164D7 /* NSStoryboard.swift */,
 				8BB8D4D420E6BC2800E81986 /* Notification.Name.swift */,
 			);
 			path = Extensions;
@@ -271,6 +261,8 @@
 				8B0DF036205ECC4000C7F823 /* Shell.swift */,
 				8BF505192083EB5100DBFB18 /* FileSystemManager.swift */,
 				8BEF6DFA208E826200893A12 /* Notifications.swift */,
+				026C695F24FE9FD400FF2EF2 /* Shell.h */,
+				026C695E24FE9FD400FF2EF2 /* Shell.cpp */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -291,26 +283,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		C0A3D6B2C024F853B2A8296B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				075584AEEB32F5D3901FFCC7 /* Pods-Scripty.debug.xcconfig */,
-				A68971C062A14CBD3BA5F595 /* Pods-Scripty.release.xcconfig */,
-				1927FC7C9469499B18746945 /* Pods-Scripty-ScriptyTests.debug.xcconfig */,
-				C2982CEAD9182B27C4C45517 /* Pods-Scripty-ScriptyTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F68D0DD8B9919E6A268F56F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				07C9F63D47E741227B2DBF0C /* Pods_Scripty.framework */,
-				50BBB377E760FEABC18F3C13 /* Pods_Scripty_ScriptyTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,13 +290,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B0DF02C205EC71C00C7F823 /* Build configuration list for PBXNativeTarget "Scripty" */;
 			buildPhases = (
-				C273FD4D154C2E3096CEA2D6 /* [CP] Check Pods Manifest.lock */,
 				8B0DF043205EDA6D00C7F823 /* Swiftgen */,
 				8B0DF00D205EC71B00C7F823 /* Sources */,
 				8B0DF00E205EC71B00C7F823 /* Frameworks */,
 				8B0DF00F205EC71B00C7F823 /* Resources */,
-				8AC9A9BB9758250417891F49 /* [CP] Embed Pods Frameworks */,
-				D3DF712912D82D4A0B4C928E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,12 +308,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B0DF02F205EC71C00C7F823 /* Build configuration list for PBXNativeTarget "ScriptyTests" */;
 			buildPhases = (
-				88288941BCC78426BA75204B /* [CP] Check Pods Manifest.lock */,
 				8B0DF01F205EC71C00C7F823 /* Sources */,
 				8B0DF020205EC71C00C7F823 /* Frameworks */,
 				8B0DF021205EC71C00C7F823 /* Resources */,
-				701E2000C4BC01D2A3200D71 /* [CP] Embed Pods Frameworks */,
-				FB78ACF302DA27C77F58F1B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,6 +334,7 @@
 				TargetAttributes = {
 					8B0DF010205EC71B00C7F823 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1150;
 						ProvisioningStyle = Automatic;
 					};
 					8B0DF022205EC71C00C7F823 = {
@@ -418,54 +385,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		701E2000C4BC01D2A3200D71 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scripty-ScriptyTests/Pods-Scripty-ScriptyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		88288941BCC78426BA75204B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Scripty-ScriptyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8AC9A9BB9758250417891F49 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scripty/Pods-Scripty-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8B0DF043205EDA6D00C7F823 /* Swiftgen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,55 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = $PODS_ROOT/SwiftGen/bin/swiftgen;
-		};
-		C273FD4D154C2E3096CEA2D6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Scripty-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D3DF712912D82D4A0B4C928E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scripty/Pods-Scripty-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB78ACF302DA27C77F58F1B2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scripty-ScriptyTests/Pods-Scripty-ScriptyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "${SRCROOT}/tools/swiftgen/bin/swiftgen\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -543,9 +414,9 @@
 				8B11E84120ED5AFD002344D7 /* NSApplication.swift in Sources */,
 				8B0DF035205ECA7600C7F823 /* MainMenu.swift in Sources */,
 				8BB8D4D520E6BC2800E81986 /* Notification.Name.swift in Sources */,
-				8B1BB8A220712F4A002164D7 /* NSStoryboard.swift in Sources */,
 				8B0DF047205EDB6F00C7F823 /* Localizable.swift in Sources */,
 				8B0DF015205EC71B00C7F823 /* AppDelegate.swift in Sources */,
+				026C696024FE9FD400FF2EF2 /* Shell.cpp in Sources */,
 				8B0DF04E205EDE3B00C7F823 /* Event.swift in Sources */,
 				8B0DF042205ED90F00C7F823 /* Script.swift in Sources */,
 				8BF5051A2083EB5100DBFB18 /* FileSystemManager.swift in Sources */,
@@ -696,9 +567,9 @@
 		};
 		8B0DF02D205EC71C00C7F823 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 075584AEEB32F5D3901FFCC7 /* Pods-Scripty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Scripty/Application/Scripty.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -706,18 +577,21 @@
 				DEVELOPMENT_TEAM = A4NNFV669G;
 				INFOPLIST_FILE = "$(SRCROOT)/Scripty/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.buildy.Scripty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Scripty/Application/Scripty-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		8B0DF02E205EC71C00C7F823 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A68971C062A14CBD3BA5F595 /* Pods-Scripty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Scripty/Application/Scripty.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -725,16 +599,17 @@
 				DEVELOPMENT_TEAM = A4NNFV669G;
 				INFOPLIST_FILE = "$(SRCROOT)/Scripty/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.buildy.Scripty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Scripty/Application/Scripty-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		8B0DF030205EC71C00C7F823 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1927FC7C9469499B18746945 /* Pods-Scripty-ScriptyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -754,7 +629,6 @@
 		};
 		8B0DF031205EC71C00C7F823 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2982CEAD9182B27C4C45517 /* Pods-Scripty-ScriptyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

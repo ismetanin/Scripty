@@ -62,10 +62,10 @@ final class AddScriptViewController: NSViewController {
     }
 
     private func localize() {
-        scriptNameTextFieldCell.title = L10n.Addscript.scriptNameTitle
-        scriptContentTextFieldCell.title = L10n.Addscript.scriptContentTitle
-        doneButton.title = L10n.Addscript.doneButtonTitle
-        doneTouchBarButton.title = L10n.Addscript.doneButtonTitle
+        scriptNameTextFieldCell.title = L10n.AddScript.scriptNameTitle
+        scriptContentTextFieldCell.title = L10n.AddScript.scriptContentTitle
+        doneButton.title = L10n.AddScript.doneButtonTitle
+        doneTouchBarButton.title = L10n.AddScript.doneButtonTitle
     }
 
     private func setupSubviews() {
@@ -86,7 +86,7 @@ final class AddScriptViewController: NSViewController {
 
 extension AddScriptViewController: NSTextFieldDelegate {
 
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         guard let textField = obj.object as? NSTextField else {
             return
         }
